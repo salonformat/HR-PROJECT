@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2524db" />
+  <meta name="description" content="First 100 Days – eine rollenbasierte Onboarding Experience von SALONFORMAT." />
+  <title>First 100 Days — SALONFORMAT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Della+Respira&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#journey">Direkt zur Journey</a>
+  <header class="topbar">
+    <a class="wordmark" href="#top" aria-label="First 100 Days – Startseite">
+      <span>first</span><span>100 days</span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <a href="#journey">Journey</a>
+      <a href="#week">Diese Woche</a>
+      <a href="#fresh-eyes">Fresh Eyes</a>
+    </nav>
+    <button class="sound-toggle" type="button" aria-pressed="false" aria-label="Ruhigen Fokusmodus aktivieren">
+      <span aria-hidden="true"></span> Fokus
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="day-label">TAG 01 · DEIN START</p>
+        <h1 id="hero-title">Du musst noch nicht alles wissen.</h1>
+        <p class="hero-intro">In den nächsten 100 Tagen lernst du Nexa nicht auswendig. Du findest heraus, wie du hier wirksam wirst – Schritt für Schritt, mitten in der echten Arbeit.</p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#week">Erste Mission öffnen</a>
+          <button class="text-action" type="button" data-open-dialog>Wie viel Zeit brauche ich?</button>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img src="assets/journey-ink.png" alt="" />
+      </div>
+      <p class="hero-note">Kein Zusatzprogramm.<br />Deine Arbeit wird zur Lernreise.</p>
+    </section>
+
+    <section class="promise" aria-label="Das Prinzip">
+      <p>Beobachten</p><span aria-hidden="true">→</span>
+      <p>Ausprobieren</p><span aria-hidden="true">→</span>
+      <p>Feedback</p><span aria-hidden="true">→</span>
+      <p>Verantwortung</p>
+    </section>
+
+    <section class="journey" id="journey" aria-labelledby="journey-title">
+      <div class="section-heading">
+        <h2 id="journey-title">Eine Reise, die mit deiner Arbeit mitwächst.</h2>
+        <p>Der Aufwand wird kleiner, deine Verantwortung größer. Jede Phase verbindet echte Aufgaben mit genau dem Wissen, das du dafür brauchst.</p>
+      </div>
+
+      <div class="timeline" role="list" aria-label="Fünf Phasen der Journey">
+        <button class="phase active" role="listitem" data-phase="0" aria-current="step">
+          <span class="phase-days">Tag 01–10</span>
+          <strong>Ankommen</strong>
+          <small>ca. 2–3 Std./Woche</small>
+        </button>
+        <button class="phase" role="listitem" data-phase="1">
+          <span class="phase-days">Tag 11–30</span>
+          <strong>Muster sehen</strong>
+          <small>ca. 2 Std./Woche</small>
+        </button>
+        <button class="phase" role="listitem" data-phase="2">
+          <span class="phase-days">Tag 31–60</span>
+          <strong>Wirksam werden</strong>
+          <small>ca. 1 Std./Woche</small>
+        </button>
+        <button class="phase" role="listitem" data-phase="3">
+          <span class="phase-days">Tag 61–90</span>
+          <strong>Verantworten</strong>
+          <small>ca. 45 Min./Woche</small>
+        </button>
+        <button class="phase" role="listitem" data-phase="4">
+          <span class="phase-days">Tag 91–100</span>
+          <strong>Weitergeben</strong>
+          <small>ein Abschluss</small>
+        </button>
+      </div>
+
+      <article class="phase-detail" aria-live="polite">
+        <div>
+          <p class="phase-index">PHASE A</p>
+          <h3>Erst verstehen, dann funktionieren.</h3>
+        </div>
+        <div class="phase-body">
+          <p>Du lernst nicht zuerst alle Tools. Du lernst die Menschen, Fragen und Entscheidungen kennen, die deine Arbeit prägen.</p>
+          <ul>
+            <li>Produkt einmal aus Kund:innensicht erleben</li>
+            <li>Drei Perspektiven aus Sales, Support und Produkt hören</li>
+            <li>Eine ungeschriebene Regel entschlüsseln</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="week" id="week" aria-labelledby="week-title">
+      <div class="week-number" aria-hidden="true">01</div>
+      <div class="week-content">
+        <p class="week-meta">DEINE ERSTE WOCHE · 40 MINUTEN + ECHTE ARBEIT</p>
+        <h2 id="week-title">Sieh das Produkt mit den Augen eines neuen Kunden.</h2>
+        <p>Richte einen Beispiel-Account ein. Notiere drei Stellen, an denen du neugierig wirst – und eine, an der du beinahe aussteigst.</p>
+
+        <div class="mission-grid">
+          <div class="mission-instruction">
+            <h3>Deine Mission</h3>
+            <ol>
+              <li><span>15 Min.</span> Ohne interne Anleitung starten</li>
+              <li><span>10 Min.</span> Irritationen und Aha-Momente sammeln</li>
+              <li><span>15 Min.</span> Beobachtung mit deinem Buddy teilen</li>
+            </ol>
+          </div>
+          <form class="field-note" id="field-note-form">
+            <label for="field-note">Deine Field Note</label>
+            <p>Was würdest du einem echten Kunden jetzt gerne fragen?</p>
+            <textarea id="field-note" rows="4" placeholder="Ein Gedanke reicht …"></textarea>
+            <button type="submit">Notiz für später sichern</button>
+            <p class="save-state" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="support" aria-labelledby="support-title">
+      <div class="support-title-wrap">
+        <h2 id="support-title">Du gehst nicht allein.</h2>
+        <p>Onboarding ist keine persönliche Bringschuld. Drei Menschen tragen die Journey mit dir.</p>
+      </div>
+      <div class="support-roles">
+        <article>
+          <span>01</span>
+          <h3>Dein Buddy</h3>
+          <p>für die Fragen, die in keinem Handbuch stehen</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Dein Lead</h3>
+          <p>für Klarheit, Feedback und wachsende Verantwortung</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Dein Netzwerk</h3>
+          <p>für Perspektiven jenseits des eigenen Teams</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="fresh-eyes" id="fresh-eyes" aria-labelledby="fresh-title">
+      <div class="fresh-art" aria-hidden="true">
+        <img src="assets/fresh-eyes-ink.png" alt="" />
+      </div>
+      <div class="fresh-copy">
+        <p class="day-label">TAG 100 · FRESH EYES</p>
+        <h2 id="fresh-title">Dein frischer Blick ist kein Zwischenzustand. Er ist wertvoll.</h2>
+        <p>Am Ende präsentierst du keine Prüfung. Du teilst, was dir geholfen hat, was lange unklar blieb und welche kleine Veränderung zukünftigen Kolleg:innen den Einstieg erleichtern könnte.</p>
+        <blockquote>Was sollten wir bewahren?<br />Was könnten wir gemeinsam besser machen?</blockquote>
+        <p class="privacy-note">Deine Beobachtungen werden als Muster weitergegeben, nicht als persönliche Bewertung. Sie fließen nicht in deine Leistungsbeurteilung ein.</p>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p>100 Tage später</p>
+      <h2 id="closing-title">Nicht fertig. Aber bereit, deinen eigenen Weg mitzugestalten.</h2>
+      <a href="#week">Zur ersten Mission zurück</a>
+    </section>
+  </main>
+
+  <button class="my-space-trigger" type="button" aria-expanded="false" aria-controls="my-space">
+    <span class="trigger-mark" aria-hidden="true"></span>
+    <span><strong>Mein Notizbuch</strong><small>Privat · nur auf diesem Gerät</small></span>
+  </button>
+
+  <aside class="my-space" id="my-space" aria-label="Mein privates Notizbuch" aria-hidden="true">
+    <div class="space-head">
+      <div>
+        <p>DEIN PRIVATES NOTIZBUCH</p>
+        <h2>Gedanken, die bleiben dürfen.</h2>
+      </div>
+      <button class="space-close" type="button" aria-label="Notizbuch schließen">×</button>
+    </div>
+
+    <section class="space-panel active">
+      <p class="space-prompt">Für Fragen, Beobachtungen und lose Gedanken während deiner 100 Tage. Niemand außer dir kann diese Einträge sehen.</p>
+      <form id="journal-form" class="journal-form">
+        <label for="journal-entry">Neue Notiz</label>
+        <textarea id="journal-entry" rows="4" placeholder="Was will ich nicht vergessen?"></textarea>
+        <div class="journal-actions">
+          <select id="journal-tag" aria-label="Notiz einordnen">
+            <option value="Beobachtung">Beobachtung</option>
+            <option value="Frage">Frage</option>
+            <option value="Aha">Aha-Moment</option>
+            <option value="Später">Für später</option>
+          </select>
+          <button type="submit">Hinzufügen</button>
+        </div>
+      </form>
+      <div class="journal-list" aria-live="polite"></div>
+    </section>
+    <p class="space-privacy"><strong>Wirklich privat:</strong> Die Notizen werden ausschließlich lokal in diesem Browser gespeichert. Es gibt keine Übertragung an HR, Führungskräfte oder SALONFORMAT.</p>
+  </aside>
+  <div class="space-backdrop" hidden></div>
+
+  <footer>
+    <span>FIRST 100 DAYS</span>
+    <span>Eine Learning Experience von SALONFORMAT</span>
+    <span>Prototyp · Customer Success</span>
+  </footer>
+
+  <dialog id="time-dialog">
+    <button class="dialog-close" type="button" aria-label="Dialog schließen">×</button>
+    <p class="dialog-mark">100</p>
+    <h2>100 Tage Begleitung.<br />Nicht 100 Tage Training.</h2>
+    <p>Die Journey liegt über deiner echten Arbeit. In den ersten Wochen reservierst du etwa 2–3 Stunden, später oft weniger als eine. Die meisten Missionen sind Aufgaben, die ohnehin anstehen – bewusster vorbereitet und besser reflektiert.</p>
+    <button class="primary-action" type="button" data-close-dialog>Verstanden</button>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
