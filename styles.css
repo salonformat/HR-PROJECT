@@ -468,9 +468,9 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
 .language-switch { display: flex; gap: .15rem; }
 .language-switch button { border: 0; padding: .35rem .4rem .28rem; background: transparent; color: var(--white); font-size: .62rem; cursor: pointer; }
 .language-switch button.active { background: var(--white); color: var(--blue); }
-.header-progress { display: flex; align-items: center; gap: .8rem; min-width: 7rem; font-size: .7rem; }
-.header-progress-track { width: 4rem; height: .3rem; background: rgba(255,255,255,.3); }
-.header-progress-track i { display: block; height: 100%; background: var(--yellow); }
+.header-progress { display: flex; align-items: center; gap: .65rem; min-width: 8.5rem; font-size: .76rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.header-progress-track { width: 5.75rem; height: .48rem; overflow: hidden; background: rgba(255,255,255,.4); outline: 1px solid rgba(255,255,255,.28); }
+.header-progress-track i { display: block; min-width: .18rem; height: 100%; background: var(--yellow); transition: width .35s ease-out; }
 .mobile-menu { display: none; }
 .app-main { min-height: calc(100vh - 5.2rem); }
 .app-view { padding: clamp(3rem, 6vw, 6.5rem) 3.5vw; }
@@ -486,6 +486,9 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
 .dashboard-facts div + div { padding-left: 1.2rem; border-left: 1px solid rgba(255,255,255,.3); }
 .dashboard-facts dt { font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; }
 .dashboard-facts dd { margin: .5rem 0 0; font-family: var(--display); font-size: 1.15rem; line-height: 1.25; }
+.dashboard-quick-start { display: flex; align-items: center; gap: 1rem; width: fit-content; margin-top: 1.6rem; }
+.dashboard-quick-start > span { font-size: .62rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.dashboard-quick-start > button { min-height: 2.9rem; border: 0; padding: .85rem 1.15rem .75rem; background: var(--yellow); color: var(--ink); font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
 .dashboard-art { display: grid; place-items: center; min-width: 0; padding: 3rem 2rem; background: var(--blue); }
 .dashboard-art img { width: 100%; max-height: 23rem; object-fit: contain; }
 .adaptable-note { display: grid; grid-template-columns: minmax(12rem, .35fr) 1fr; gap: 2rem; align-items: baseline; margin-top: 1.5rem; padding: 1.4rem 2.2rem; background: var(--coral); color: var(--ink); }
@@ -548,16 +551,17 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
 .journey-mission-list small { font-size: .65rem; }
 .journey-mission-list b { font-size: .68rem; font-weight: 400; }
 
-.mission-contextbar { position: sticky; z-index: 20; top: 5.2rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; max-width: 72rem; margin: 0 auto 1.5rem; padding: .75rem 0; background: var(--paper); border-bottom: 1px solid var(--ink); }
+#view-mission { padding-top: 1.5rem; }
+.mission-contextbar { position: sticky; z-index: 20; top: 5.2rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; max-width: 72rem; margin: 0 auto .75rem; padding: .65rem 0; background: var(--paper); border-bottom: 1px solid var(--ink); }
 .mission-contextbar > span { font-size: .65rem; font-weight: 600; letter-spacing: .1em; text-align: right; text-transform: uppercase; }
 .back-link { border: 0; padding: .3rem 0; background: none; cursor: pointer; }
 .focused-mission { max-width: 72rem; margin: auto; background: var(--white); }
-.focused-mission > header { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: clamp(2rem, 5vw, 5rem); padding: clamp(2.5rem, 6vw, 6rem); background: var(--blue); color: var(--white); }
+.focused-mission > header { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: clamp(2rem, 4vw, 4rem); padding: clamp(2rem, 3.5vw, 3.5rem) clamp(2rem, 4.5vw, 4.5rem); background: var(--blue); color: var(--white); }
 .mission-meta { grid-column: 1; display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; }
-.mission-big-number { grid-column: 2; grid-row: 1 / 4; align-self: center; color: var(--yellow); font-family: var(--display); font-size: clamp(9rem, 16vw, 14rem); line-height: .72; letter-spacing: -.04em; }
-.focused-mission > header h1 { grid-column: 1; max-width: 12ch; margin: 3rem 0 1.5rem; font-size: clamp(3.5rem, 7vw, 6rem); }
-.focused-mission > header > p { grid-column: 1; max-width: 43rem; margin: 0; font-size: 1.05rem; }
-.focused-steps { display: grid; grid-template-columns: .55fr 1fr; gap: 3rem; padding: 3rem clamp(2rem, 6vw, 6rem); background: var(--yellow); }
+.mission-big-number { grid-column: 2; grid-row: 1 / 4; align-self: center; color: var(--yellow); font-family: var(--display); font-size: clamp(7rem, 10vw, 9rem); line-height: .72; letter-spacing: -.04em; }
+.focused-mission > header h1 { grid-column: 1; max-width: 13ch; margin: 1.65rem 0 .85rem; font-size: clamp(3rem, 5vw, 4.7rem); line-height: .95; }
+.focused-mission > header > p { grid-column: 1; max-width: 43rem; margin: 0; font-size: 1rem; }
+.focused-steps { display: grid; grid-template-columns: .55fr 1fr; gap: 2rem; padding: 1.7rem clamp(2rem, 4.5vw, 4.5rem); background: var(--yellow); }
 .focused-steps h2, .mission-form-title h2 { font-family: var(--display); font-size: 2rem; font-weight: 400; }
 .focused-steps ol { margin: 0; padding-left: 1.2rem; }
 .focused-steps li { padding: .55rem 0; }
@@ -637,13 +641,15 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
   .app-nav { grid-column: 1 / -1; order: 3; justify-content: flex-start; overflow-x: auto; padding-top: .5rem; border-top: 1px solid rgba(255,255,255,.3); }
   .app-nav button { white-space: nowrap; }
   .header-tools { justify-self: end; gap: .6rem; }
-  .header-progress-track { display: none; }
+  .header-progress { min-width: auto; }
+  .header-progress-track { display: block; width: 3.5rem; }
   .app-view { padding: 2rem 1rem 4rem; }
   .dashboard-intro { grid-template-columns: 1fr; }
   .dashboard-copy { padding: 2rem 1.3rem; }
   .dashboard-copy h1 { max-width: 13ch; font-size: clamp(3.2rem, 9vw, 4.6rem); }
   .dashboard-facts { grid-template-columns: 1fr; }
   .dashboard-facts div + div { padding-left: 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.3); }
+  .dashboard-quick-start { align-items: flex-start; flex-direction: column; gap: .65rem; }
   .dashboard-art { padding: 1rem; }
   .dashboard-art img { max-height: 11rem; }
   .dashboard-grid { grid-template-columns: 1fr; }
@@ -659,7 +665,7 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
   .journey-mission-list button > b { grid-column: 2; }
   .focused-steps { grid-template-columns: 1fr; }
   .mission-contextbar { top: 7.65rem; }
-  .mission-big-number { font-size: clamp(7rem, 20vw, 10rem); }
+  .mission-big-number { font-size: clamp(6.5rem, 17vw, 8.5rem); }
   .mission-support article { grid-template-columns: 3.5rem 1fr; }
   .mission-support article button { grid-column: 2; justify-self: start; }
   .form-actions { flex-direction: column; }
@@ -677,6 +683,7 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
   .app-brand span { font-size: 1.25rem; }
   .header-tools { gap: .35rem; }
   .header-progress { min-width: auto; margin-left: .3rem; }
+  .header-progress-track { width: 2.6rem; height: .4rem; }
   .language-switch button { min-width: 2.25rem; min-height: 2.25rem; }
   .app-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .25rem; width: 100%; overflow: visible; padding-top: .55rem; }
   .app-nav button { min-width: 0; min-height: 2.75rem; padding: .6rem .15rem .5rem; font-size: .58rem; letter-spacing: .06em; white-space: normal; }
@@ -708,10 +715,12 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
   .journey-mission-list p { display: none; }
   .mission-contextbar { position: sticky; top: 0; margin-bottom: .75rem; padding: .65rem 0; }
   .mission-contextbar > span { max-width: 50%; font-size: .56rem; }
-  .focused-mission > header { grid-template-columns: 1fr; padding: 1.4rem 1rem 2rem; }
+  #view-mission { padding-top: .75rem; }
+  .focused-mission > header { grid-template-columns: 1fr auto; padding: 1.25rem 1rem 1.5rem; }
   .mission-meta { grid-column: 1; }
-  .mission-big-number { grid-column: 1; grid-row: auto; justify-self: end; margin: .8rem 0 -.8rem; font-size: 7.5rem; }
-  .focused-mission > header h1 { margin: 1.8rem 0 1rem; font-size: clamp(2.8rem, 14vw, 3.7rem); }
+  .mission-big-number { grid-column: 2; grid-row: 1 / 3; align-self: start; justify-self: end; margin: .1rem 0 0 .5rem; font-size: 5.5rem; }
+  .focused-mission > header h1 { grid-column: 1 / -1; margin: 1.15rem 0 .75rem; font-size: clamp(2.5rem, 12vw, 3.35rem); }
+  .focused-mission > header > p { grid-column: 1 / -1; }
   .focused-mission > header p { font-size: .95rem; }
   .focused-steps, #mission-form { padding: 1.5rem 1rem; }
   .mission-support, .mission-complete { padding: 1.5rem 1rem; }

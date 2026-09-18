@@ -146,6 +146,7 @@ function nextMission() { return missions.find((mission) => !completed.includes(m
 
 function renderDashboard() {
   const next = nextMission();
+  $("#dashboard-quick-start").innerHTML = `<span>${copy().dashboard.next} · ${copy().mission.number} ${Number(next.number)} ${copy().mission.of}</span><button type="button" data-open-mission="${next.id}">${copy().dashboard.open} →</button>`;
   $("#dashboard-next-mission").innerHTML = `<strong class="dashboard-mission-number" aria-hidden="true">${Number(next.number)}</strong><span>${copy().mission.number} ${Number(next.number)} ${copy().mission.of} · ${phases.find((p) => p.id === next.phase).label} · ${durationLabel(next.duration)}</span><h2>${next.title}</h2><p>${next.intro}</p><button type="button" data-open-mission="${next.id}">${copy().dashboard.open}</button>`;
   $("#dashboard-phase-progress").innerHTML = phases.map((phase) => {
     const all = missions.filter((mission) => mission.phase === phase.id); const done = all.filter((mission) => completed.includes(mission.id)).length;
