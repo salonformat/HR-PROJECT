@@ -33,6 +33,18 @@ const people = [
   { id: "sofia", initials: "SR", name: "Sofia Rossi", role: "Produkt", text: "Produktentscheidungen, Nutzungsmuster und Roadmap", topics: ["Produkt-Perspektive", "Nutzungsverhalten", "Produktfragen"] }
 ];
 
+const missionPeople = {
+  "three-views": ["lara", "david", "sofia"],
+  "unwritten-rule": ["mara"],
+  "listen-call": ["noah"],
+  "first-part": ["noah"],
+  "use-feedback": ["noah"],
+  "success-plan": ["noah"],
+  "small-portfolio": ["noah"],
+  "recovery-plan": ["noah"],
+  "explain": ["mara"]
+};
+
 const germanMissions = JSON.parse(JSON.stringify(missions));
 const germanPeople = JSON.parse(JSON.stringify(people));
 let language = localStorage.getItem("first100-language") || "de";
@@ -75,9 +87,12 @@ function applyLanguage(nextLanguage, rerender = true) {
   $("#view-notes .view-head > div > p").textContent = copy().notes.meta; $("#notes-title").textContent = copy().notes.title; $("#view-notes .view-head > p").textContent = copy().notes.intro; $(".notes-form label").textContent = copy().notes.label; $("#journal-entry").placeholder = copy().notes.placeholder; $(".notes-form button").textContent = copy().notes.save;
   const noteOptions = language === "fr" ? ["Observation","Question","Déclic","Pour plus tard"] : language === "en" ? ["Observation","Question","Aha moment","For later"] : ["Beobachtung","Frage","Aha-Moment","Für später"];
   $$("#journal-tag option").forEach((option, index) => option.textContent = noteOptions[index]);
-  const scheduleText = language === "fr" ? ["PLANIFIER UN RENDEZ-VOUS","Rendez-vous avec","Quel est le sujet ?","Date","Heure","Durée","Note","Enregistrer le rendez-vous","RENDEZ-VOUS ENREGISTRÉ","Le rendez-vous apparaît dans votre accueil.","Téléchargez également une invitation pour l’ajouter à votre calendrier.","Télécharger l’invitation calendrier","Terminé"] : language === "en" ? ["SCHEDULE A MEETING","Meeting with","What is it about?","Date","Time","Duration","Note","Save meeting","MEETING SAVED","The meeting now appears on your home screen.","You can also download an event and add it to your calendar.","Download calendar event","Done"] : ["TERMIN PLANEN","Termin mit","Worum geht es?","Datum","Uhrzeit","Dauer","Notiz","Termin speichern","TERMIN GESPEICHERT","Der Termin steht in deinem Dashboard.","Du kannst zusätzlich einen Kalendereintrag herunterladen.","Kalendereintrag herunterladen","Fertig"];
+  const scheduleText = language === "fr" ? ["PRÉPARER UN ÉVÉNEMENT","Rendez-vous avec","Quel est le sujet ?","Date","Heure","Durée","Note","Enregistrer le brouillon","BROUILLON ENREGISTRÉ","Le brouillon apparaît dans votre accueil.","Téléchargez l’événement pour l’ajouter à votre calendrier. Aucune invitation n’est envoyée automatiquement.","Télécharger l’événement","Terminé"] : language === "en" ? ["PREPARE A CALENDAR EVENT","Meeting with","What is it about?","Date","Time","Duration","Note","Save draft","DRAFT SAVED","The draft now appears on your home screen.","Download the event to add it to your calendar. No invitation is sent automatically.","Download calendar event","Done"] : ["KALENDERENTWURF ERSTELLEN","Termin mit","Worum geht es?","Datum","Uhrzeit","Dauer","Notiz","Entwurf speichern","ENTWURF GESPEICHERT","Der Entwurf steht in deinem Dashboard.","Lade den Eintrag herunter, um ihn deinem Kalender hinzuzufügen. Es wird nicht automatisch eine Einladung verschickt.","Kalendereintrag herunterladen","Fertig"];
   $("#schedule-dialog .context-label").textContent = scheduleText[0]; $("#schedule-dialog label").childNodes[0].nodeValue = scheduleText[2]; const scheduleLabels = $$("#schedule-form label"); scheduleLabels[1].childNodes[0].nodeValue = scheduleText[3]; scheduleLabels[2].childNodes[0].nodeValue = scheduleText[4]; scheduleLabels[3].childNodes[0].nodeValue = scheduleText[5]; scheduleLabels[4].childNodes[0].nodeValue = scheduleText[6]; $("#schedule-form .primary-action").textContent = scheduleText[7]; $("#scheduled-dialog .context-label").textContent = scheduleText[8]; $("#scheduled-dialog h2").textContent = scheduleText[9]; $("#scheduled-dialog > p:not(.context-label)").textContent = scheduleText[10]; $("#download-ics").textContent = scheduleText[11]; $("#scheduled-dialog [data-close-confirmation]").textContent = scheduleText[12];
+  $("#schedule-note").closest("label").querySelector("small").textContent = copy().mission.optional;
   $$("#schedule-duration option").forEach((option) => option.textContent = `${option.value} ${language === "de" ? "Minuten" : "minutes"}`);
+  const a11y = copy().a11y; $(".skip-link").textContent = a11y.skip; $(".app-brand").setAttribute("aria-label", a11y.home); $(".app-nav").setAttribute("aria-label", a11y.nav); $(".language-switch").setAttribute("aria-label", a11y.language); $(".header-progress").setAttribute("aria-label", a11y.progress); $("#view-mission").setAttribute("aria-label", a11y.mission); $("#journey-phase-tabs").setAttribute("aria-label", a11y.phases); $("#journal-tag").setAttribute("aria-label", a11y.noteCategory); $$(".dialog-close").forEach((button) => button.setAttribute("aria-label", a11y.close)); $("#schedule-note").placeholder = language === "fr" ? "Que souhaitez-vous aborder ?" : language === "en" ? "What would you like to discuss?" : "Was möchtest du besprechen?";
+  $("#reset-demo").textContent = copy().demo.reset;
   $(".app-footer span:last-child").textContent = language === "fr" ? "Toutes les données restent locales" : language === "en" ? "All data stays local" : "Alle Daten bleiben lokal";
   if (rerender && typeof activeView !== "undefined") route(activeView, { push: false });
 }
@@ -90,6 +105,8 @@ let completed = JSON.parse(localStorage.getItem("first100-completed") || "[]");
 let meetings = JSON.parse(localStorage.getItem("first100-meetings") || "[]");
 let notes = JSON.parse(localStorage.getItem("first100-journal") || "[]");
 let latestMeetingId = null;
+let deletedNote = null;
+let undoTimer = null;
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -149,8 +166,10 @@ function renderJourney() {
 
 function renderMission() {
   const mission = missions.find((x) => x.id === activeMissionId); const phase = phases.find((x) => x.id === mission.phase); const saved = answers[mission.id] || [];
-  const mc = copy().mission;
-  $("#focused-mission").innerHTML = `<header><div><span>${mc.number} ${mission.number} ${mc.of}</span><span>${phase.label}</span><span>${durationLabel(mission.duration)}</span></div><h1>${mission.title}</h1><p>${mission.intro}</p></header><section class="focused-steps"><h2>${mc.steps}</h2><ol>${mission.steps.map((step) => `<li>${step}</li>`).join("")}</ol></section><form id="mission-form"><div class="mission-form-title"><h2>${mc.results}</h2><p>${mc.savedLocal}</p></div>${mission.prompts.map((prompt, index) => `<label><span>${prompt[0]}${prompt[2] === false ? ` <small>${mc.optional}</small>` : ""}</span><textarea rows="4" data-answer="${index}" ${prompt[2] === false ? "" : "required"} placeholder="${prompt[1]}">${escapeHtml(saved[index] || "")}</textarea></label>`).join("")}<p class="form-status" role="status"></p><div class="form-actions"><button type="button" data-save-mission>${mc.save}</button><button type="submit" class="primary-action">${completed.includes(mission.id) ? mc.done : mc.finish}</button></div></form>`;
+  const mc = copy().mission; const isDone = completed.includes(mission.id); const collaborators = (missionPeople[mission.id] || []).map((id) => people.find((person) => person.id === id)); const missionIndex = missions.findIndex((item) => item.id === mission.id); const isLast = missionIndex === missions.length - 1;
+  const support = collaborators.length ? `<section class="mission-support"><h2>${mc.support}</h2><div>${collaborators.map((person) => `<article><span class="person-avatar">${person.initials}</span><p><strong>${person.name}</strong><small>${person.role}</small></p><button type="button" data-schedule-person="${person.id}">${mc.scheduleWith}</button></article>`).join("")}</div></section>` : "";
+  const completion = isDone ? `<section class="mission-complete" tabindex="-1"><p>${mc.done}</p><h2>${isLast ? mc.finalTitle : mc.completeTitle}</h2><p>${isLast ? mc.finalText : mc.completeText}</p><button type="button" class="primary-action" ${isLast ? 'data-route="journey"' : `data-next-mission="${missions[missionIndex + 1].id}"`}>${isLast ? mc.overview : mc.next} →</button></section>` : "";
+  $("#focused-mission").innerHTML = `<header><div><span>${mc.number} ${mission.number} ${mc.of}</span><span>${phase.label}</span><span>${durationLabel(mission.duration)}</span></div><h1>${mission.title}</h1><p>${mission.intro}</p></header><section class="focused-steps"><h2>${mc.steps}</h2><ol>${mission.steps.map((step) => `<li>${step}</li>`).join("")}</ol></section>${support}<form id="mission-form"><div class="mission-form-title"><h2>${mc.results}</h2><p>${mc.savedLocal}</p></div>${mission.prompts.map((prompt, index) => `<label><span>${prompt[0]}${prompt[2] === false ? ` <small>${mc.optional}</small>` : ""}</span><textarea rows="4" data-answer="${index}" ${prompt[2] === false ? "" : "required"} placeholder="${prompt[1]}">${escapeHtml(saved[index] || "")}</textarea></label>`).join("")}<p class="form-status" role="status"></p><div class="form-actions"><button type="button" data-save-mission>${mc.save}</button><button type="submit" class="primary-action">${isDone ? mc.update : mc.finish}</button></div></form>${completion}`;
   updateHeader();
 }
 
@@ -160,12 +179,18 @@ function renderPeople() {
 
 function renderNotes() {
   const list = $("#journal-list");
-  list.innerHTML = notes.length ? notes.map((note) => `<article><p>${note.tag} · ${note.date}</p><h2>${escapeHtml(note.text)}</h2><button type="button" data-delete-note="${note.id}">${copy().notes.remove}</button></article>`).join("") : `<div class="empty-state"><p>${copy().notes.empty}</p></div>`;
+  const tagLabels = language === "fr" ? { Beobachtung: "Observation", Frage: "Question", Aha: "Déclic", Später: "Pour plus tard" } : language === "en" ? { Beobachtung: "Observation", Frage: "Question", Aha: "Aha moment", Später: "For later" } : { Beobachtung: "Beobachtung", Frage: "Frage", Aha: "Aha-Moment", Später: "Für später" };
+  const locale = language === "fr" ? "fr-FR" : language === "en" ? "en-GB" : "de-AT";
+  list.innerHTML = notes.length ? notes.map((note) => { const date = /^\d{4}-\d{2}-\d{2}/.test(note.date) ? new Intl.DateTimeFormat(locale, { day: "2-digit", month: "short" }).format(new Date(`${note.date.slice(0, 10)}T12:00:00`)) : note.date; return `<article><p>${tagLabels[note.tag] || note.tag} · ${date}</p><h2>${escapeHtml(note.text)}</h2><button type="button" data-delete-note="${note.id}">${copy().notes.remove}</button></article>`; }).join("") : `<div class="empty-state"><p>${copy().notes.empty}</p></div>`;
+}
+
+function showUndoNote() {
+  const toast = $("#undo-toast"); clearTimeout(undoTimer); toast.innerHTML = `<span>${copy().notes.deleted}</span><button type="button" data-undo-note>${copy().notes.undo}</button>`; toast.hidden = false; undoTimer = setTimeout(() => { toast.hidden = true; deletedNote = null; }, 10000);
 }
 
 function meetingCard(meeting) {
-  const person = people.find((x) => x.id === meeting.personId); const date = new Intl.DateTimeFormat("de-AT", { day: "2-digit", month: "short" }).format(new Date(`${meeting.date}T12:00:00`));
-  return `<article class="meeting-card"><time>${date}<strong>${meeting.time}</strong></time><div><h3>${meeting.topic}</h3><p>${person.name} · ${meeting.duration} Min.</p></div><button type="button" data-download-meeting="${meeting.id}" aria-label="Kalendereintrag herunterladen">↓</button></article>`;
+  const person = people.find((x) => x.id === meeting.personId); const locale = language === "fr" ? "fr-FR" : language === "en" ? "en-GB" : "de-AT"; const date = new Intl.DateTimeFormat(locale, { day: "2-digit", month: "short" }).format(new Date(`${meeting.date}T12:00:00`)); const minutes = language === "de" ? "Min." : "min"; const downloadLabel = language === "fr" ? "Télécharger l’événement" : language === "en" ? "Download calendar event" : "Kalendereintrag herunterladen";
+  return `<article class="meeting-card"><time>${date}<strong>${meeting.time}</strong></time><div><h3>${meeting.topic}</h3><p>${person.name} · ${meeting.duration} ${minutes}</p></div><button type="button" data-download-meeting="${meeting.id}" aria-label="${downloadLabel}">↓</button></article>`;
 }
 
 function collectMissionAnswers() {
@@ -179,9 +204,12 @@ document.addEventListener("click", (event) => {
   const routeButton = event.target.closest("[data-route]"); if (routeButton) return route(routeButton.dataset.route);
   const phaseButton = event.target.closest("[data-open-phase]"); if (phaseButton) { activePhase = phaseButton.dataset.openPhase; save(); return route("journey"); }
   const missionButton = event.target.closest("[data-open-mission]"); if (missionButton) { activeMissionId = missionButton.dataset.openMission; activePhase = missions.find((x) => x.id === activeMissionId).phase; save(); return route("mission"); }
+  const nextMissionButton = event.target.closest("[data-next-mission]"); if (nextMissionButton) { activeMissionId = nextMissionButton.dataset.nextMission; activePhase = missions.find((x) => x.id === activeMissionId).phase; save(); return route("mission"); }
   const scheduleButton = event.target.closest("[data-schedule-person]"); if (scheduleButton) return openSchedule(scheduleButton.dataset.schedulePerson);
   const downloadButton = event.target.closest("[data-download-meeting]"); if (downloadButton) return downloadMeeting(downloadButton.dataset.downloadMeeting);
-  const deleteButton = event.target.closest("[data-delete-note]"); if (deleteButton) { notes = notes.filter((note) => note.id !== Number(deleteButton.dataset.deleteNote)); save(); renderNotes(); }
+  const deleteButton = event.target.closest("[data-delete-note]"); if (deleteButton) { const id = Number(deleteButton.dataset.deleteNote); const index = notes.findIndex((note) => note.id === id); if (index >= 0) { deletedNote = { note: notes[index], index }; notes.splice(index, 1); save(); renderNotes(); showUndoNote(); } return; }
+  if (event.target.closest("[data-undo-note]") && deletedNote) { clearTimeout(undoTimer); notes.splice(deletedNote.index, 0, deletedNote.note); deletedNote = null; $("#undo-toast").hidden = true; save(); renderNotes(); return; }
+  if (event.target.closest("#reset-demo")) { if (!window.confirm(copy().demo.confirm)) return; answers = {}; completed = []; meetings = []; notes = []; activePhase = "start"; activeMissionId = missions[0].id; ["first100-active-phase", "first100-active-mission", "first100-mission-answers", "first100-completed", "first100-meetings", "first100-journal"].forEach((key) => localStorage.removeItem(key)); route("dashboard"); return; }
   if (event.target.closest("[data-save-mission]")) { collectMissionAnswers(); $(".form-status").textContent = copy().mission.saved; }
   if (event.target.closest("[data-close-schedule]")) $("#schedule-dialog").close();
   if (event.target.closest("[data-close-confirmation]")) $("#scheduled-dialog").close();
@@ -196,11 +224,11 @@ document.addEventListener("submit", (event) => {
   if (event.target.id === "mission-form") {
     event.preventDefault(); const empty = $$("textarea[required]", event.target).find((field) => !field.value.trim());
     if (empty) { $(".form-status", event.target).textContent = copy().mission.required; return empty.focus(); }
-    collectMissionAnswers(); if (!completed.includes(activeMissionId)) completed.push(activeMissionId); save(); route("dashboard");
+    collectMissionAnswers(); if (!completed.includes(activeMissionId)) completed.push(activeMissionId); save(); renderMission(); $(".mission-complete")?.focus();
   }
   if (event.target.id === "journal-form") {
     event.preventDefault(); const field = $("#journal-entry"); if (!field.value.trim()) return field.focus();
-    notes.unshift({ id: Date.now(), text: field.value.trim(), tag: $("#journal-tag").value, date: new Intl.DateTimeFormat("de-AT", { day: "2-digit", month: "short" }).format(new Date()) }); field.value = ""; save(); renderNotes();
+    notes.unshift({ id: Date.now(), text: field.value.trim(), tag: $("#journal-tag").value, date: new Date().toISOString().slice(0, 10) }); field.value = ""; save(); renderNotes();
   }
   if (event.target.id === "schedule-form") { event.preventDefault(); saveMeeting(); }
 });
@@ -208,29 +236,39 @@ document.addEventListener("submit", (event) => {
 function openSchedule(personId) {
   const person = people.find((x) => x.id === personId); const prefix = language === "fr" ? "Rendez-vous avec" : language === "en" ? "Meeting with" : "Termin mit"; $("#schedule-person-id").value = personId; $("#schedule-person-title").textContent = `${prefix} ${person.name}`; $("#schedule-person-context").textContent = person.role;
   $("#schedule-topic").innerHTML = person.topics.map((topic) => `<option>${topic}</option>`).join("");
-  const date = new Date(); date.setDate(date.getDate() + 1); $("#schedule-date").value = date.toISOString().slice(0, 10); $("#schedule-time").value = "10:00"; $("#schedule-note").value = ""; $(".schedule-status").textContent = ""; $("#schedule-dialog").showModal();
+  const today = new Date(); const date = new Date(today); date.setDate(date.getDate() + 1); $("#schedule-date").min = today.toISOString().slice(0, 10); $("#schedule-date").value = date.toISOString().slice(0, 10); $("#schedule-time").value = "10:00"; $("#schedule-note").value = ""; $(".schedule-status").textContent = ""; $("#schedule-dialog").showModal();
 }
 
 function saveMeeting() {
   const meeting = { id: Date.now(), personId: $("#schedule-person-id").value, topic: $("#schedule-topic").value, date: $("#schedule-date").value, time: $("#schedule-time").value, duration: Number($("#schedule-duration").value), note: $("#schedule-note").value.trim() };
-  if (!meeting.date || !meeting.time) { $(".schedule-status").textContent = language === "fr" ? "Choisissez une date et une heure." : language === "en" ? "Please choose a date and time." : "Bitte wähl Datum und Uhrzeit."; return; }
+  if (!meeting.date || !meeting.time) { $(".schedule-status").textContent = language === "fr" ? "Choisissez une date et une heure." : language === "en" ? "Please choose a date and time." : "Bitte wähle Datum und Uhrzeit."; return; }
   meetings.push(meeting); latestMeetingId = meeting.id; save(); $("#schedule-dialog").close(); $("#scheduled-dialog").showModal(); renderDashboard();
 }
 
 function downloadMeeting(id) {
   const meeting = meetings.find((x) => x.id === Number(id)); if (!meeting) return; const person = people.find((x) => x.id === meeting.personId);
   const start = new Date(`${meeting.date}T${meeting.time}:00`); const end = new Date(start.getTime() + meeting.duration * 60000); const stamp = (date) => date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SALONFORMAT//First100Days//DE", "BEGIN:VEVENT", `UID:${meeting.id}@first100days.local`, `DTSTAMP:${stamp(new Date())}`, `DTSTART:${stamp(start)}`, `DTEND:${stamp(end)}`, `SUMMARY:${meeting.topic} – ${person.name}`, `DESCRIPTION:${meeting.note || "First 100 Days Onboarding"}`, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
-  const link = document.createElement("a"); link.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" })); link.download = `termin-${person.id}.ics`; link.click(); URL.revokeObjectURL(link.href);
+  const safeIcs = (value) => String(value).replace(/\\/g, "\\\\").replace(/\r?\n/g, "\\n").replace(/,/g, "\\,").replace(/;/g, "\\;"); const description = meeting.note || (language === "fr" ? "Onboarding First 100 Days" : language === "en" ? "First 100 Days onboarding" : "First 100 Days Onboarding");
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//SALONFORMAT//First100Days//EN", "CALSCALE:GREGORIAN", "BEGIN:VEVENT", `UID:${meeting.id}@first100days.local`, `DTSTAMP:${stamp(new Date())}`, `DTSTART:${stamp(start)}`, `DTEND:${stamp(end)}`, `SUMMARY:${safeIcs(`${meeting.topic} – ${person.name}`)}`, `DESCRIPTION:${safeIcs(description)}`, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  const filePrefix = language === "fr" ? "rendez-vous" : language === "en" ? "meeting" : "termin"; const link = document.createElement("a"); link.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" })); link.download = `${filePrefix}-${person.id}.ics`; link.click(); URL.revokeObjectURL(link.href);
 }
 
 $("#download-ics").addEventListener("click", () => downloadMeeting(latestMeetingId));
 window.addEventListener("popstate", (event) => {
-  const state = event.state || { view: "dashboard", phase: "start", mission: missions[0].id };
+  const state = event.state || routeFromHash();
   activePhase = state.phase || "start";
   activeMissionId = state.mission || missions[0].id;
   route(state.view || "dashboard", { push: false });
 });
 applyLanguage(language, false);
-history.replaceState({ view: "dashboard", phase: activePhase, mission: activeMissionId }, "", "#/dashboard");
-route("dashboard", { push: false });
+function routeFromHash() {
+  const [requestedView, requestedMission] = window.location.hash.replace(/^#\/?/, "").split("/");
+  const allowedViews = ["dashboard", "journey", "people", "notes", "mission"];
+  const view = allowedViews.includes(requestedView) ? requestedView : "dashboard";
+  const mission = missions.some((item) => item.id === requestedMission) ? requestedMission : activeMissionId;
+  const phase = missions.find((item) => item.id === mission)?.phase || activePhase;
+  return { view: view === "mission" && !requestedMission ? "dashboard" : view, phase, mission };
+}
+const initialRoute = routeFromHash(); activePhase = initialRoute.phase; activeMissionId = initialRoute.mission;
+history.replaceState(initialRoute, "", `#/${initialRoute.view}${initialRoute.view === "mission" ? `/${initialRoute.mission}` : ""}`);
+route(initialRoute.view, { push: false });

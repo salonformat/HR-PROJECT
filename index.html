@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Della+Respira&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body class="app-body">
   <a class="skip-link" href="#main-content">Zum Inhalt</a>
@@ -29,7 +29,6 @@
       <div class="language-switch" aria-label="Sprache wählen"><button type="button" data-lang="de" class="active">DE</button><button type="button" data-lang="fr">FR</button><button type="button" data-lang="en">EN</button></div>
       <div class="header-progress" aria-label="Gesamtfortschritt"><span id="header-progress-text">0/15</span><span class="header-progress-track"><i id="header-progress-fill"></i></span></div>
     </div>
-    <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="mobile-navigation">Menü</button>
   </header>
 
   <main id="main-content" class="app-main">
@@ -44,7 +43,7 @@
             <div><dt>Dein Programm</dt><dd>15 Missionen in fünf Phasen</dd></div>
           </dl>
         </div>
-        <div class="dashboard-art" aria-hidden="true"><img src="assets/journey-ink.png" alt="" /></div>
+        <div class="dashboard-art" aria-hidden="true"><img src="assets/journey-ink.png" width="1400" height="466" decoding="async" alt="" /></div>
       </div>
 
       <div class="dashboard-grid">
@@ -141,8 +140,9 @@
     <div><button type="button" class="primary-action" id="download-ics">Kalendereintrag herunterladen</button><button type="button" class="text-button" data-close-confirmation>Fertig</button></div>
   </dialog>
 
-  <footer class="app-footer"><span>FIRST 100 DAYS</span><a href="https://salonformat.com/#projects" target="_blank" rel="noreferrer">Alle Experiences ↗</a><a href="https://salonformat.com" target="_blank" rel="noreferrer">Experience by SALONFORMAT</a><span>Alle Daten bleiben lokal</span></footer>
-  <script src="locales.js?v=5"></script>
-  <script src="app.js?v=5"></script>
+  <div class="undo-toast" id="undo-toast" role="status" aria-live="polite" hidden></div>
+  <footer class="app-footer"><span>FIRST 100 DAYS</span><a href="https://salonformat.com/#projects" target="_blank" rel="noreferrer">Alle Experiences ↗</a><a href="https://salonformat.com" target="_blank" rel="noreferrer">Experience by SALONFORMAT</a><button type="button" id="reset-demo">Demo zurücksetzen</button><span>Alle Daten bleiben lokal</span></footer>
+  <script src="locales.js?v=8"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

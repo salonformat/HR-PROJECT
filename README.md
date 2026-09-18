@@ -6,7 +6,7 @@ Die Experience enthält außerdem „Mein Notizbuch“: ein privates, ausschlie�
 
 Der Prototyp enthält 15 vollständig ausformulierte Missionen. Jede Mission hat konkrete Arbeitsschritte, eigene Eingabefelder, automatische lokale Speicherung und einen Abschlussstatus. Ein klarer Startscreen erklärt vorab das fiktive Unternehmen DemoCo, die Rolle und die Bedienung.
 
-Die Oberfläche ist auf Deutsch, Französisch und Englisch verfügbar. Eine fokussierte Navigation trennt Start, Journey, Personen und Notizen. Der Browser-Zurück-Button funktioniert wie erwartet; Gespräche mit Buddy, Lead und Fachpersonen können direkt geplant und als Kalenderdatei gespeichert werden.
+Die Oberfläche ist auf Deutsch, Französisch und Englisch verfügbar. Eine fokussierte Navigation trennt Start, Journey, Personen und Notizen. Direktlinks und der Browser-Zurück-Button funktionieren wie erwartet. Benötigte Personen erscheinen direkt in der jeweiligen Mission; Kalenderentwürfe können lokal vorbereitet und als Kalenderdatei gespeichert werden. Nach jeder abgeschlossenen Mission führt ein eindeutiger Button zur nächsten Mission.
 
 ## Idee
 

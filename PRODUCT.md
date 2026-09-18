@@ -34,7 +34,7 @@ Der Prototyp spielt beim ausdrücklich fiktiven B2B-Softwareunternehmen DemoCo. 
 
 ### Bedienung
 
-Die Experience beginnt mit dem Unternehmens- und Rollenkontext. Danach wird der Ablauf in vier Schritten erklärt: Mission öffnen, Aufgabe im Arbeitsalltag machen, Ergebnisse in den missionsbezogenen Feldern eintragen und Mission abschließen. Alle 15 Missionen sind über fünf Phasen erreichbar. Eigene Bereiche bündeln die Journey, interne Kontakte und private Notizen. Termine lassen sich direkt innerhalb der Experience vorbereiten und als Kalenderdatei exportieren. Die Navigation unterstützt den normalen Browser-Verlauf.
+Die Experience beginnt mit dem Unternehmens- und Rollenkontext. Danach wird der Ablauf in vier Schritten erklärt: Mission öffnen, Aufgabe im Arbeitsalltag machen, Ergebnisse in den missionsbezogenen Feldern eintragen und Mission abschließen. Alle 15 Missionen sind über fünf Phasen erreichbar. Eigene Bereiche bündeln die Journey, interne Kontakte und private Notizen. Benötigte Personen und Kalenderentwürfe sind direkt in die jeweilige Mission eingebunden. Nach dem Abschluss bestätigt die Experience den Erfolg und führt immer mit einem sichtbaren Button zur nächsten Mission. Direktlinks und der normale Browser-Verlauf werden unterstützt.
 
 ### Sprache
 
