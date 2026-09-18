@@ -30,7 +30,3 @@ Anschließend `http://localhost:4173` öffnen.
 
 - Della Respira
 - Josefin Sans
-
-## Bildwelt
-
-Die Projektillustrationen wurden mit OpenAI ImageGen erzeugt und für diese Experience kuratiert. Die finalen Prompts sind im Projekt unter `assets/PROMPTS.md` dokumentiert.
