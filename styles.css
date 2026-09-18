@@ -543,12 +543,15 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
 .journey-mission-list small { font-size: .65rem; }
 .journey-mission-list b { font-size: .68rem; font-weight: 400; }
 
-.back-link { margin-bottom: 1.5rem; border: 0; border-bottom: 1px solid; padding: .3rem 0; background: none; cursor: pointer; }
+.mission-contextbar { position: sticky; z-index: 20; top: 5.2rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; max-width: 72rem; margin: 0 auto 1.5rem; padding: .75rem 0; background: var(--paper); border-bottom: 1px solid var(--ink); }
+.mission-contextbar > span { font-size: .65rem; font-weight: 600; letter-spacing: .1em; text-align: right; text-transform: uppercase; }
+.back-link { border: 0; padding: .3rem 0; background: none; cursor: pointer; }
 .focused-mission { max-width: 72rem; margin: auto; background: var(--white); }
-.focused-mission > header { padding: clamp(2.5rem, 6vw, 6rem); background: var(--blue); color: var(--white); }
-.focused-mission > header > div { display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; }
-.focused-mission > header h1 { max-width: 12ch; margin: 3rem 0 1.5rem; font-size: clamp(3.5rem, 7vw, 6rem); }
-.focused-mission > header p { max-width: 43rem; margin: 0; font-size: 1.05rem; }
+.focused-mission > header { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: clamp(2rem, 5vw, 5rem); padding: clamp(2.5rem, 6vw, 6rem); background: var(--blue); color: var(--white); }
+.mission-meta { grid-column: 1; display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; }
+.mission-big-number { grid-column: 2; grid-row: 1 / 4; align-self: center; color: var(--yellow); font-family: var(--display); font-size: clamp(9rem, 16vw, 14rem); line-height: .72; letter-spacing: -.04em; }
+.focused-mission > header h1 { grid-column: 1; max-width: 12ch; margin: 3rem 0 1.5rem; font-size: clamp(3.5rem, 7vw, 6rem); }
+.focused-mission > header > p { grid-column: 1; max-width: 43rem; margin: 0; font-size: 1.05rem; }
 .focused-steps { display: grid; grid-template-columns: .55fr 1fr; gap: 3rem; padding: 3rem clamp(2rem, 6vw, 6rem); background: var(--yellow); }
 .focused-steps h2, .mission-form-title h2 { font-family: var(--display); font-size: 2rem; font-weight: 400; }
 .focused-steps ol { margin: 0; padding-left: 1.2rem; }
@@ -617,6 +620,8 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
 .undo-toast { position: fixed; z-index: 80; right: 1rem; bottom: 1rem; display: flex; align-items: center; gap: 1rem; max-width: calc(100% - 2rem); padding: 1rem 1.2rem; background: var(--ink); color: var(--white); box-shadow: .4rem .6rem 2rem rgba(0,0,0,.22); }
 .undo-toast[hidden] { display: none; }
 .undo-toast button { min-height: 2.75rem; border: 0; border-bottom: 1px solid var(--yellow); background: transparent; color: var(--yellow); cursor: pointer; }
+.global-progress { position: fixed; z-index: 100; right: 0; bottom: 0; left: 0; height: .38rem; background: rgba(24,23,22,.28); pointer-events: none; }
+.global-progress i { display: block; width: 0; height: 100%; background: var(--coral); transition: width .45s ease-out; }
 
 .app-body button, .app-body a, .app-body input, .app-body select, .app-body textarea { touch-action: manipulation; }
 .app-body p, .app-body button, .app-body a { overflow-wrap: anywhere; }
@@ -647,6 +652,8 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
   .journey-mission-list button { grid-template-columns: 2.5rem 1fr; }
   .journey-mission-list button > b { grid-column: 2; }
   .focused-steps { grid-template-columns: 1fr; }
+  .mission-contextbar { top: 7.65rem; }
+  .mission-big-number { font-size: clamp(7rem, 20vw, 10rem); }
   .mission-support article { grid-template-columns: 3.5rem 1fr; }
   .mission-support article button { grid-column: 2; justify-self: start; }
   .form-actions { flex-direction: column; }
@@ -691,7 +698,11 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
   .journey-mission-list button { grid-template-columns: 2.3rem 1fr; gap: .7rem; min-height: 5.5rem; padding: 1rem; }
   .journey-mission-list h3 { font-size: 1.35rem; }
   .journey-mission-list p { display: none; }
-  .focused-mission > header { padding: 2rem 1rem; }
+  .mission-contextbar { position: sticky; top: 0; margin-bottom: .75rem; padding: .65rem 0; }
+  .mission-contextbar > span { max-width: 50%; font-size: .56rem; }
+  .focused-mission > header { grid-template-columns: 1fr; padding: 1.4rem 1rem 2rem; }
+  .mission-meta { grid-column: 1; }
+  .mission-big-number { grid-column: 1; grid-row: auto; justify-self: end; margin: .8rem 0 -.8rem; font-size: 7.5rem; }
   .focused-mission > header h1 { margin: 1.8rem 0 1rem; font-size: clamp(2.8rem, 14vw, 3.7rem); }
   .focused-mission > header p { font-size: .95rem; }
   .focused-steps, #mission-form { padding: 1.5rem 1rem; }
