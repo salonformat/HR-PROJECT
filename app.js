@@ -47,7 +47,8 @@ const missionPeople = {
 
 const germanMissions = JSON.parse(JSON.stringify(missions));
 const germanPeople = JSON.parse(JSON.stringify(people));
-let language = localStorage.getItem("first100-language") || "de";
+const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+let language = ["de", "fr", "en"].includes(requestedLanguage) ? requestedLanguage : (localStorage.getItem("first100-language") || "de");
 const copy = () => window.FIRST100_LOCALES[language];
 function durationLabel(value) {
   if (language === "de") return value;
@@ -203,7 +204,13 @@ function collectMissionAnswers() {
 }
 
 document.addEventListener("click", (event) => {
-  const languageButton = event.target.closest("[data-lang]"); if (languageButton) return applyLanguage(languageButton.dataset.lang);
+  const languageButton = event.target.closest("[data-lang]");
+  if (languageButton) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", languageButton.dataset.lang);
+    history.replaceState(history.state, "", `${url.pathname}${url.search}${url.hash}`);
+    return applyLanguage(languageButton.dataset.lang);
+  }
   const routeButton = event.target.closest("[data-route]"); if (routeButton) return route(routeButton.dataset.route);
   const phaseButton = event.target.closest("[data-open-phase]"); if (phaseButton) { activePhase = phaseButton.dataset.openPhase; save(); return route("journey"); }
   const missionButton = event.target.closest("[data-open-mission]"); if (missionButton) { activeMissionId = missionButton.dataset.openMission; activePhase = missions.find((x) => x.id === activeMissionId).phase; save(); return route("mission"); }
