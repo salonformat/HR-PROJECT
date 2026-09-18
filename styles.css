@@ -455,3 +455,181 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
+
+/* App layout */
+.app-body { min-height: 100vh; background: var(--paper); }
+.app-header { position: sticky; z-index: 40; top: 0; height: 5.2rem; display: grid; grid-template-columns: 12rem 1fr auto; align-items: center; gap: 2rem; padding: 0 3.5vw; background: var(--blue); color: var(--white); border-bottom: 1px solid rgba(255,255,255,.28); }
+.app-brand { width: max-content; border: 0; background: none; color: inherit; cursor: pointer; text-align: left; line-height: .7; }
+.app-brand span { display: block; font-family: var(--display); font-size: 1.5rem; letter-spacing: -.04em; }
+.app-nav { display: flex; justify-content: center; gap: .4rem; }
+.app-nav button, .app-nav a { border: 0; padding: .65rem .9rem .55rem; background: transparent; color: inherit; text-decoration: none; text-transform: uppercase; letter-spacing: .1em; font-size: .68rem; cursor: pointer; }
+.app-nav button.active { background: var(--yellow); color: var(--ink); }
+.header-tools { display: flex; align-items: center; gap: 1.3rem; }
+.language-switch { display: flex; gap: .15rem; }
+.language-switch button { border: 0; padding: .35rem .4rem .28rem; background: transparent; color: var(--white); font-size: .62rem; cursor: pointer; }
+.language-switch button.active { background: var(--white); color: var(--blue); }
+.header-progress { display: flex; align-items: center; gap: .8rem; min-width: 7rem; font-size: .7rem; }
+.header-progress-track { width: 4rem; height: .3rem; background: rgba(255,255,255,.3); }
+.header-progress-track i { display: block; height: 100%; background: var(--yellow); }
+.mobile-menu { display: none; }
+.app-main { min-height: calc(100vh - 5.2rem); }
+.app-view { padding: clamp(3rem, 6vw, 6.5rem) 3.5vw; }
+.app-view[hidden] { display: none; }
+.context-label, .view-head > div > p, .next-mission-panel > p { font-size: .66rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+
+.dashboard-intro { min-height: 32rem; display: grid; grid-template-columns: minmax(25rem, .85fr) 1.15fr; overflow: hidden; background: var(--blue); color: var(--white); }
+.dashboard-copy { position: relative; z-index: 2; padding: clamp(2.5rem, 5vw, 5rem); }
+.dashboard-copy h1 { max-width: 9ch; margin: 2rem 0 1.3rem; font-size: clamp(4rem, 7vw, 7rem); }
+.dashboard-copy > p:not(.context-label) { max-width: 34rem; font-size: 1.1rem; }
+.dashboard-facts { display: grid; grid-template-columns: 1fr 1fr; margin: 3rem 0 0; border-top: 1px solid rgba(255,255,255,.4); }
+.dashboard-facts div { padding: 1.2rem 1.2rem 0 0; }
+.dashboard-facts div + div { padding-left: 1.2rem; border-left: 1px solid rgba(255,255,255,.3); }
+.dashboard-facts dt { font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; }
+.dashboard-facts dd { margin: .5rem 0 0; font-family: var(--display); font-size: 1.15rem; line-height: 1.25; }
+.dashboard-art { display: grid; place-items: center; min-width: 0; padding: 3rem 2rem; background: var(--blue); }
+.dashboard-art img { width: 100%; max-height: 23rem; object-fit: contain; }
+
+.dashboard-grid { display: grid; grid-template-columns: 1.15fr .85fr; margin-top: 1.5rem; gap: 1.5rem; }
+.dashboard-grid > article { min-width: 0; padding: 2.2rem; background: var(--white); }
+.next-mission-panel { grid-row: span 2; background: var(--yellow) !important; }
+.next-mission-panel > p { margin-bottom: 4.5rem; }
+.next-mission-panel span { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; }
+.next-mission-panel h2 { max-width: 11ch; margin: 1.2rem 0; font-family: var(--display); font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 400; line-height: 1; }
+.next-mission-panel #dashboard-next-mission > p { max-width: 39rem; }
+.next-mission-panel button, .panel-head button, .empty-state button { border: 0; border-bottom: 1px solid; padding: .4rem 0; background: none; cursor: pointer; }
+.next-mission-panel #dashboard-next-mission > button { margin-top: 2rem; padding: .9rem 1.2rem .78rem; border: 0; background: var(--blue); color: var(--white); text-transform: uppercase; letter-spacing: .08em; font-size: .7rem; }
+.panel-head { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; margin-bottom: 1.8rem; }
+.panel-head h2, .how-panel h2 { margin: 0; font-family: var(--display); font-size: 2rem; font-weight: 400; }
+.panel-head button { font-size: .7rem; }
+.phase-progress-list { display: grid; gap: .3rem; }
+.phase-progress-list button { display: grid; grid-template-columns: minmax(9rem, 1fr) 5rem 2rem; align-items: center; gap: .8rem; width: 100%; border: 0; padding: .65rem 0; background: none; text-align: left; cursor: pointer; }
+.phase-progress-list strong, .phase-progress-list small { display: block; }
+.phase-progress-list strong { font-family: var(--display); font-weight: 400; }
+.phase-progress-list small { font-size: .6rem; }
+.phase-progress-list i { height: .28rem; background: rgba(24,23,22,.15); }
+.phase-progress-list b { display: block; height: 100%; background: var(--coral); }
+.phase-progress-list em { font-size: .65rem; font-style: normal; }
+.meeting-card { display: grid; grid-template-columns: 3.5rem 1fr auto; align-items: center; gap: 1rem; padding: .85rem 0; border-top: 1px solid var(--line); }
+.meeting-card time { font-size: .62rem; text-transform: uppercase; }
+.meeting-card time strong { display: block; margin-top: .15rem; font-family: var(--display); font-size: 1rem; font-weight: 400; }
+.meeting-card h3, .meeting-card p { margin: 0; }
+.meeting-card h3 { font-family: var(--display); font-size: 1rem; font-weight: 400; }
+.meeting-card p { font-size: .68rem; }
+.meeting-card button { width: 2rem; height: 2rem; border: 1px solid; border-radius: 50%; background: none; cursor: pointer; }
+.empty-state { padding: 2rem 0; border-top: 1px solid var(--line); }
+.how-panel ol { padding-left: 1.2rem; }
+.how-panel li { padding: .35rem 0; }
+.how-panel > p { margin: 1.5rem 0 0; font-size: .7rem; }
+
+.view-head { display: grid; grid-template-columns: 1fr .55fr; gap: 8vw; align-items: end; max-width: 90rem; margin: 0 auto 5rem; }
+.view-head h1 { margin: 1rem 0 0; font-size: clamp(4rem, 7vw, 7rem); }
+.view-head > p { max-width: 31rem; margin: 0; font-size: 1.05rem; }
+.journey-progress { max-width: 90rem; display: grid; grid-template-columns: repeat(5, 1fr); margin: auto; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.journey-progress button { min-height: 8.5rem; display: flex; flex-direction: column; align-items: flex-start; border: 0; border-right: 1px solid var(--line); padding: 1rem; background: transparent; text-align: left; cursor: pointer; }
+.journey-progress button:last-child { border-right: 0; }
+.journey-progress button[aria-selected="true"] { background: var(--blue); color: var(--white); }
+.journey-progress span, .journey-progress small { font-size: .62rem; text-transform: uppercase; letter-spacing: .08em; }
+.journey-progress strong { margin: auto 0 .4rem; font-family: var(--display); font-size: 1.2rem; font-weight: 400; line-height: 1.1; }
+.journey-phase-content { max-width: 90rem; display: grid; grid-template-columns: .42fr 1fr; margin: 2rem auto 0; background: var(--ink); color: var(--white); }
+.journey-phase-content > header { padding: 2.5rem; }
+.journey-phase-content > header p { color: var(--yellow); font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; }
+.journey-phase-content > header h2 { font-family: var(--display); font-size: clamp(2.5rem, 4vw, 4.5rem); font-weight: 400; line-height: 1; }
+.journey-mission-list button { width: 100%; display: grid; grid-template-columns: 3rem 1fr auto; gap: 1.2rem; align-items: center; border: 0; border-bottom: 1px solid rgba(255,255,255,.25); padding: 1.7rem; background: transparent; color: var(--white); text-align: left; cursor: pointer; }
+.journey-mission-list button:hover { background: var(--yellow); color: var(--ink); }
+.journey-mission-list button.done > span { background: var(--yellow); color: var(--ink); }
+.journey-mission-list button > span { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 1px solid; border-radius: 50%; font-size: .65rem; }
+.journey-mission-list h3 { margin: 0 0 .5rem; font-family: var(--display); font-size: 1.6rem; font-weight: 400; }
+.journey-mission-list p { max-width: 45rem; margin: 0 0 .6rem; font-size: .8rem; }
+.journey-mission-list small { font-size: .65rem; }
+.journey-mission-list b { font-size: .68rem; font-weight: 400; }
+
+.back-link { margin-bottom: 1.5rem; border: 0; border-bottom: 1px solid; padding: .3rem 0; background: none; cursor: pointer; }
+.focused-mission { max-width: 72rem; margin: auto; background: var(--white); }
+.focused-mission > header { padding: clamp(2.5rem, 6vw, 6rem); background: var(--blue); color: var(--white); }
+.focused-mission > header > div { display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; }
+.focused-mission > header h1 { max-width: 12ch; margin: 3rem 0 1.5rem; font-size: clamp(3.5rem, 7vw, 6rem); }
+.focused-mission > header p { max-width: 43rem; margin: 0; font-size: 1.05rem; }
+.focused-steps { display: grid; grid-template-columns: .55fr 1fr; gap: 3rem; padding: 3rem clamp(2rem, 6vw, 6rem); background: var(--yellow); }
+.focused-steps h2, .mission-form-title h2 { font-family: var(--display); font-size: 2rem; font-weight: 400; }
+.focused-steps ol { margin: 0; padding-left: 1.2rem; }
+.focused-steps li { padding: .55rem 0; }
+#mission-form { padding: 4rem clamp(2rem, 6vw, 6rem); }
+.mission-form-title { margin-bottom: 2.5rem; }
+.mission-form-title h2 { margin-bottom: .5rem; font-size: 2.7rem; }
+.mission-form-title p { font-size: .75rem; }
+#mission-form label { display: block; margin-top: 2rem; }
+#mission-form label > span { display: block; margin-bottom: .65rem; font-family: var(--display); font-size: 1.3rem; }
+#mission-form textarea { width: 100%; padding: 1rem; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); resize: vertical; }
+.form-status { min-height: 1.4rem; color: var(--blue); font-size: .75rem; }
+.form-actions { display: flex; justify-content: flex-end; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.form-actions > button:first-child { border: 1px solid var(--ink); padding: .8rem 1rem; background: transparent; cursor: pointer; }
+
+.people-directory { max-width: 90rem; margin: auto; border-top: 1px solid var(--ink); }
+.people-directory article { display: grid; grid-template-columns: 3rem 4.5rem 1fr auto; gap: 2rem; align-items: center; padding: 1.6rem 0; border-bottom: 1px solid var(--line); }
+.person-number { font-size: .65rem; }
+.person-avatar { display: grid; place-items: center; width: 4.5rem; height: 4.5rem; border-radius: 48% 52% 45% 55%; background: var(--coral); font-family: var(--display); font-size: 1.3rem; }
+.people-directory article:nth-child(even) .person-avatar { background: var(--yellow); }
+.people-directory h2, .people-directory h3, .people-directory p { margin: 0; }
+.people-directory h2 { font-family: var(--display); font-size: 1.8rem; font-weight: 400; }
+.people-directory h3 { margin: .15rem 0 .4rem; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; }
+.people-directory p { font-size: .85rem; }
+.people-directory button { border: 0; padding: .8rem 1rem .7rem; background: var(--blue); color: var(--white); cursor: pointer; }
+
+.notes-layout { max-width: 90rem; display: grid; grid-template-columns: .8fr 1.2fr; gap: 5vw; margin: auto; }
+.notes-form label { display: block; margin-bottom: .7rem; font-family: var(--display); font-size: 1.5rem; }
+.notes-form textarea { width: 100%; padding: 1rem; border: 1px solid var(--ink); background: var(--white); resize: vertical; }
+.notes-form > div { display: flex; justify-content: space-between; gap: 1rem; margin-top: .8rem; }
+.notes-form select { border: 0; border-bottom: 1px solid; background: transparent; }
+.notes-form button { border: 0; padding: .8rem 1rem; background: var(--blue); color: var(--white); cursor: pointer; }
+.notes-list { display: grid; gap: .8rem; }
+.notes-list article { position: relative; padding: 1.5rem 4rem 1.5rem 1.5rem; background: var(--white); }
+.notes-list article > p { margin-bottom: .7rem; color: var(--blue); font-size: .62rem; text-transform: uppercase; letter-spacing: .08em; }
+.notes-list article h2 { margin: 0; font-family: var(--display); font-size: 1.3rem; font-weight: 400; white-space: pre-wrap; }
+.notes-list article button { position: absolute; top: 1.3rem; right: 1.3rem; border: 0; border-bottom: 1px solid; background: none; font-size: .65rem; cursor: pointer; }
+
+.schedule-dialog, .scheduled-dialog { width: min(40rem, calc(100% - 2rem)); border: 0; padding: 3.5rem; background: var(--paper); color: var(--ink); }
+.schedule-dialog::backdrop, .scheduled-dialog::backdrop { background: rgba(37,36,219,.82); }
+.schedule-dialog h2, .scheduled-dialog h2 { font-family: var(--display); font-size: 2.7rem; font-weight: 400; line-height: 1.1; }
+.schedule-dialog label { display: block; margin-top: 1.2rem; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; }
+.schedule-dialog input, .schedule-dialog select, .schedule-dialog textarea { width: 100%; margin-top: .4rem; padding: .8rem; border: 1px solid var(--ink); border-radius: 0; background: var(--white); }
+.schedule-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.schedule-status { min-height: 1.2rem; color: var(--coral); font-size: .75rem; }
+.scheduled-dialog > div { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; }
+.text-button { border: 0; border-bottom: 1px solid; background: transparent; cursor: pointer; }
+.app-footer { display: flex; justify-content: space-between; gap: 2rem; padding: 2rem 3.5vw; background: var(--ink); color: var(--white); font-size: .62rem; text-transform: uppercase; letter-spacing: .1em; }
+.app-footer a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.45); }
+
+@media (max-width: 850px) {
+  .app-header { height: auto; min-height: 4.5rem; grid-template-columns: 1fr auto; padding: .8rem 1rem; }
+  .app-nav { grid-column: 1 / -1; order: 3; justify-content: flex-start; overflow-x: auto; padding-top: .5rem; border-top: 1px solid rgba(255,255,255,.3); }
+  .app-nav button { white-space: nowrap; }
+  .header-tools { justify-self: end; gap: .6rem; }
+  .header-progress-track { display: none; }
+  .app-view { padding: 2rem 1rem 4rem; }
+  .dashboard-intro { grid-template-columns: 1fr; }
+  .dashboard-copy { padding: 2rem 1.3rem; }
+  .dashboard-copy h1 { font-size: 4rem; }
+  .dashboard-facts { grid-template-columns: 1fr; }
+  .dashboard-facts div + div { padding-left: 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.3); }
+  .dashboard-art { padding: 1rem; }
+  .dashboard-art img { max-height: 11rem; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .next-mission-panel { grid-row: auto; }
+  .next-mission-panel > p { margin-bottom: 2rem; }
+  .view-head { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+  .view-head h1 { font-size: 4rem; }
+  .journey-progress { display: flex; overflow-x: auto; }
+  .journey-progress button { min-width: 12rem; }
+  .journey-phase-content { grid-template-columns: 1fr; }
+  .journey-mission-list button { grid-template-columns: 2.5rem 1fr; }
+  .journey-mission-list button > b { grid-column: 2; }
+  .focused-steps { grid-template-columns: 1fr; }
+  .form-actions { flex-direction: column; }
+  .people-directory article { grid-template-columns: 3rem 1fr; gap: 1rem; }
+  .person-number { display: none; }
+  .people-directory article > button { grid-column: 2; justify-self: start; }
+  .notes-layout { grid-template-columns: 1fr; }
+  .schedule-dialog, .scheduled-dialog { padding: 3rem 1.2rem; }
+  .schedule-row { grid-template-columns: 1fr; }
+  .app-footer { flex-direction: column; }
+}

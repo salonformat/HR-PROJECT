@@ -25,4 +25,4 @@ Die Experience gehört sichtbar zu SALONFORMAT: kräftige Vollflächen, ruhige E
 
 ## Interaktion
 
-Die fünf Phasen reagieren direkt auf Auswahl. Eine Field Note bleibt lokal im Browser gespeichert. Der Fokusmodus nimmt dekorative Elemente zurück, ohne Inhalte zu verstecken.
+Die Experience ist in wenige klare Bereiche gegliedert: Start, Journey, Personen und Notizen. Missionen öffnen sich in einem ruhigen Fokusmodus; Eingabefelder stehen unmittelbar unter der jeweiligen Aufgabe. Fortschritt und nächster Schritt sind sichtbar, ohne den Bildschirm zu überladen. Notizen, Antworten und geplante Termine bleiben lokal im Browser gespeichert.

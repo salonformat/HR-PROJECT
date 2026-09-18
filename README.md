@@ -4,7 +4,9 @@ Ein interaktiver SALONFORMAT-Prototyp für eine rollenbasierte Onboarding Experi
 
 Die Experience enthält außerdem „Mein Notizbuch“: ein privates, ausschließlich lokal gespeichertes Begleitbuch für Fragen, Beobachtungen, Aha-Momente und lose Gedanken.
 
-Der Prototyp enthält 15 vollständig ausformulierte Missionen. Jede Mission hat konkrete Arbeitsschritte, eigene Eingabefelder, automatische lokale Speicherung und einen Abschlussstatus. Ein klarer Startscreen erklärt vorab das fiktive Unternehmen Nexa, die Rolle und die Bedienung.
+Der Prototyp enthält 15 vollständig ausformulierte Missionen. Jede Mission hat konkrete Arbeitsschritte, eigene Eingabefelder, automatische lokale Speicherung und einen Abschlussstatus. Ein klarer Startscreen erklärt vorab das fiktive Unternehmen DemoCo, die Rolle und die Bedienung.
+
+Die Oberfläche ist auf Deutsch, Französisch und Englisch verfügbar. Eine fokussierte Navigation trennt Start, Journey, Personen und Notizen. Der Browser-Zurück-Button funktioniert wie erwartet; Gespräche mit Buddy, Lead und Fachpersonen können direkt geplant und als Kalenderdatei gespeichert werden.
 
 ## Idee
 
@@ -31,4 +33,4 @@ Anschließend `http://localhost:4173` öffnen.
 
 ## Bildwelt
 
-Die beiden Projektillustrationen wurden mit OpenAI ImageGen erzeugt und für diese Experience kuratiert. Die finalen Prompts sind im Projekt unter `assets/PROMPTS.md` dokumentiert.
+Die Projektillustrationen wurden mit OpenAI ImageGen erzeugt und für diese Experience kuratiert. Die finalen Prompts sind im Projekt unter `assets/PROMPTS.md` dokumentiert.

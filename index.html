@@ -9,139 +9,140 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Della+Respira&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
-<body>
-  <a class="skip-link" href="#journey">Direkt zur Journey</a>
-  <header class="topbar">
-    <a class="wordmark" href="#top" aria-label="First 100 Days – Startseite">
+<body class="app-body">
+  <a class="skip-link" href="#main-content">Zum Inhalt</a>
+
+  <header class="app-header">
+    <button class="app-brand" type="button" data-route="dashboard" aria-label="Zur Startseite">
       <span>first</span><span>100 days</span>
-    </a>
-    <nav aria-label="Hauptnavigation">
-      <a href="#top">Start</a>
-      <a href="#journey">Missionen</a>
-      <a href="#how-it-works">So funktioniert es</a>
-    </nav>
-    <button class="sound-toggle" type="button" aria-pressed="false" aria-label="Ruhigen Fokusmodus aktivieren">
-      <span aria-hidden="true"></span> Fokus
     </button>
+    <nav class="app-nav" aria-label="Hauptnavigation">
+      <button type="button" data-route="dashboard" class="active">Start</button>
+      <button type="button" data-route="journey">Journey</button>
+      <button type="button" data-route="people">Personen</button>
+      <button type="button" data-route="notes">Notizen</button>
+      <a href="https://salonformat.com/#projects" target="_blank" rel="noreferrer">Alle Experiences ↗</a>
+    </nav>
+    <div class="header-tools">
+      <div class="language-switch" aria-label="Sprache wählen"><button type="button" data-lang="de" class="active">DE</button><button type="button" data-lang="fr">FR</button><button type="button" data-lang="en">EN</button></div>
+      <div class="header-progress" aria-label="Gesamtfortschritt"><span id="header-progress-text">0/15</span><span class="header-progress-track"><i id="header-progress-fill"></i></span></div>
+    </div>
+    <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="mobile-navigation">Menü</button>
   </header>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="day-label">DEMO-SZENARIO · DEIN ERSTER ARBEITSTAG</p>
-        <h1 id="hero-title">Willkommen bei Nexa.</h1>
-        <p class="hero-intro">Nexa entwickelt eine B2B-Plattform, mit der Unternehmen Kundenprojekte und interne Abläufe organisieren. Du startest als Customer Success Manager:in.</p>
-        <dl class="role-summary">
-          <div><dt>Deine Rolle</dt><dd>Customer Success</dd></div>
-          <div><dt>Dein Ziel nach 100 Tagen</dt><dd>Ein kleines Kundenportfolio selbst betreuen</dd></div>
-          <div><dt>Dein Programm</dt><dd>15 Missionen in fünf Phasen</dd></div>
-        </dl>
-        <div class="hero-actions">
-          <a class="primary-action" href="#how-it-works">So startest du</a>
-          <button class="text-action" type="button" data-open-dialog>Wie viel Zeit brauche ich?</button>
+  <main id="main-content" class="app-main">
+    <section class="app-view active" id="view-dashboard" data-view="dashboard" aria-labelledby="dashboard-title">
+      <div class="dashboard-intro">
+        <div class="dashboard-copy">
+          <p class="context-label">FIKTIVES BEISPIEL · DEMOCO · CUSTOMER SUCCESS</p>
+          <h1 id="dashboard-title">Willkommen bei DemoCo.</h1>
+          <p>DemoCo ist ein fiktives B2B-Softwareunternehmen. Die Plattform hilft Unternehmen, Kundenprojekte und interne Abläufe zu organisieren. Du startest im Customer Success.</p>
+          <dl class="dashboard-facts">
+            <div><dt>Dein Ziel</dt><dd>Nach 100 Tagen ein kleines Kundenportfolio selbst betreuen</dd></div>
+            <div><dt>Dein Programm</dt><dd>15 Missionen in fünf Phasen</dd></div>
+          </dl>
         </div>
+        <div class="dashboard-art" aria-hidden="true"><img src="assets/journey-ink.png" alt="" /></div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <img src="assets/journey-ink.png" alt="" />
-      </div>
-      <p class="hero-note">Fiktives Unternehmen.<br />Realistischer Onboarding-Prototyp.</p>
-    </section>
 
-    <section class="start-guide" id="how-it-works" aria-labelledby="guide-title">
-      <header>
-        <h2 id="guide-title">So benutzt du diese Experience.</h2>
-        <p>Du arbeitest die Missionen nicht an einem Stück durch. Sie begleiten dich über 100 Tage.</p>
-      </header>
-      <ol class="start-steps">
-        <li><span>1</span><div><h3>Mission öffnen</h3><p>Lies die Aufgabe und die drei konkreten Schritte.</p></div></li>
-        <li><span>2</span><div><h3>Aufgabe im Arbeitsalltag machen</h3><p>Zum Beispiel das Produkt testen oder ein Gespräch beobachten.</p></div></li>
-        <li><span>3</span><div><h3>Ergebnisse eintragen</h3><p>Jede Mission hat eigene Felder. Deine Einträge werden lokal gespeichert.</p></div></li>
-        <li><span>4</span><div><h3>Mission abschließen</h3><p>Danach siehst du deinen Fortschritt und kannst zur nächsten Mission gehen.</p></div></li>
-      </ol>
-      <div class="first-mission-callout">
-        <div><p>DEINE ERSTE AUFGABE · 40 MINUTEN</p><h3>Teste das Produkt wie ein neuer Kunde.</h3></div>
-        <a class="primary-action" href="#mission-workspace">Mission 1 starten</a>
-      </div>
-    </section>
-
-    <section class="journey-app" id="journey" aria-labelledby="journey-title">
-      <header class="journey-app-head">
-        <div>
-          <h2 id="journey-title">Alle 15 Missionen auf einen Blick.</h2>
-          <p>Wähle eine Phase und dann eine Mission. Zu jeder Mission siehst du die Aufgabe, die einzelnen Schritte und passende Felder für deine Ergebnisse.</p>
-        </div>
-        <div class="overall-progress" aria-live="polite">
-          <div><strong id="completed-count">0</strong><span>von 15 erledigt</span></div>
-          <div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
-          <p>Deine Antworten und dein Fortschritt bleiben in diesem Browser gespeichert.</p>
-        </div>
-      </header>
-
-      <div class="journey-shell">
-        <aside class="mission-navigation" aria-label="Alle Phasen und Missionen">
-          <div class="phase-filter" role="tablist" aria-label="Journey-Phasen"></div>
-          <div class="mission-list" aria-live="polite"></div>
-        </aside>
-
-        <article class="mission-workspace" id="mission-workspace" aria-live="polite">
-          <div class="mission-loading">Mission wird geöffnet …</div>
+      <div class="dashboard-grid">
+        <article class="next-mission-panel">
+          <p>ALS NÄCHSTES</p>
+          <div id="dashboard-next-mission"></div>
+        </article>
+        <article class="progress-panel">
+          <div class="panel-head"><h2>Dein Fortschritt</h2><button type="button" data-route="journey">Alle Missionen</button></div>
+          <div class="phase-progress-list" id="dashboard-phase-progress"></div>
+        </article>
+        <article class="meetings-panel">
+          <div class="panel-head"><h2>Deine Termine</h2><button type="button" data-route="people">Termin planen</button></div>
+          <div id="dashboard-meetings"></div>
+        </article>
+        <article class="how-panel">
+          <h2>So funktioniert es</h2>
+          <ol>
+            <li>Mission öffnen</li>
+            <li>Aufgabe im Arbeitsalltag machen</li>
+            <li>Ergebnisse eintragen</li>
+            <li>Mission abschließen</li>
+          </ol>
+          <p>Deine Einträge und Termine werden nur in diesem Browser gespeichert.</p>
         </article>
       </div>
     </section>
 
+    <section class="app-view" id="view-journey" data-view="journey" aria-labelledby="journey-title" hidden>
+      <header class="view-head">
+        <div><p>100 TAGE · 5 PHASEN</p><h1 id="journey-title">Deine Journey</h1></div>
+        <p>Wähle eine Phase. Du siehst dann nur die drei Missionen, die zu dieser Phase gehören.</p>
+      </header>
+      <div class="journey-progress" id="journey-phase-tabs" role="tablist" aria-label="Journey-Phasen"></div>
+      <div class="journey-phase-content">
+        <header id="journey-phase-head"></header>
+        <div class="journey-mission-list" id="journey-mission-list"></div>
+      </div>
+    </section>
+
+    <section class="app-view" id="view-mission" data-view="mission" aria-label="Aktuelle Mission" hidden>
+      <button class="back-link" type="button" data-route="journey">← Zur Journey</button>
+      <article class="focused-mission" id="focused-mission"></article>
+    </section>
+
+    <section class="app-view" id="view-people" data-view="people" aria-labelledby="people-title" hidden>
+      <header class="view-head">
+        <div><p>DEIN NETZWERK</p><h1 id="people-title">Personen kennenlernen</h1></div>
+        <p>Für einige Missionen brauchst du die Perspektive anderer Teams. Hier kannst du direkt einen Termin vormerken.</p>
+      </header>
+      <div class="people-directory" id="people-directory"></div>
+    </section>
+
+    <section class="app-view" id="view-notes" data-view="notes" aria-labelledby="notes-title" hidden>
+      <header class="view-head">
+        <div><p>PRIVAT · NUR AUF DIESEM GERÄT</p><h1 id="notes-title">Meine Notizen</h1></div>
+        <p>Für zusätzliche Fragen und Beobachtungen. Die Eingabefelder der einzelnen Missionen findest du direkt in der jeweiligen Mission.</p>
+      </header>
+      <div class="notes-layout">
+        <form id="journal-form" class="notes-form">
+          <label for="journal-entry">Neue Notiz</label>
+          <textarea id="journal-entry" rows="7" placeholder="Was möchtest du festhalten?"></textarea>
+          <div><select id="journal-tag" aria-label="Notiz einordnen"><option value="Beobachtung">Beobachtung</option><option value="Frage">Frage</option><option value="Aha">Aha-Moment</option><option value="Später">Für später</option></select><button type="submit">Notiz speichern</button></div>
+        </form>
+        <div class="notes-list" id="journal-list" aria-live="polite"></div>
+      </div>
+    </section>
   </main>
 
-  <button class="my-space-trigger" type="button" aria-expanded="false" aria-controls="my-space">
-    <span class="trigger-mark" aria-hidden="true"></span>
-    <span><strong>Mein Notizbuch</strong><small>Privat · nur auf diesem Gerät</small></span>
-  </button>
-
-  <aside class="my-space" id="my-space" aria-label="Mein privates Notizbuch" aria-hidden="true">
-    <div class="space-head">
-      <div>
-        <p>DEIN PRIVATES NOTIZBUCH</p>
-        <h2>Deine Notizen.</h2>
+  <dialog id="schedule-dialog" class="schedule-dialog">
+    <button class="dialog-close" type="button" data-close-schedule aria-label="Dialog schließen">×</button>
+    <p class="context-label">TERMIN PLANEN</p>
+    <h2 id="schedule-person-title">Gespräch vereinbaren</h2>
+    <p id="schedule-person-context"></p>
+    <form id="schedule-form">
+      <input type="hidden" id="schedule-person-id" />
+      <label>Worum geht es?<select id="schedule-topic"></select></label>
+      <div class="schedule-row">
+        <label>Datum<input type="date" id="schedule-date" required /></label>
+        <label>Uhrzeit<input type="time" id="schedule-time" required /></label>
       </div>
-      <button class="space-close" type="button" aria-label="Notizbuch schließen">×</button>
-    </div>
-
-    <section class="space-panel active">
-      <p class="space-prompt">Hier kannst du zusätzliche Fragen und Beobachtungen festhalten. Niemand außer dir kann diese Einträge sehen.</p>
-      <form id="journal-form" class="journal-form">
-        <label for="journal-entry">Neue Notiz</label>
-        <textarea id="journal-entry" rows="4" placeholder="Was will ich nicht vergessen?"></textarea>
-        <div class="journal-actions">
-          <select id="journal-tag" aria-label="Notiz einordnen">
-            <option value="Beobachtung">Beobachtung</option>
-            <option value="Frage">Frage</option>
-            <option value="Aha">Aha-Moment</option>
-            <option value="Später">Für später</option>
-          </select>
-          <button type="submit">Hinzufügen</button>
-        </div>
-      </form>
-      <div class="journal-list" aria-live="polite"></div>
-    </section>
-    <p class="space-privacy"><strong>Wirklich privat:</strong> Die Notizen werden ausschließlich lokal in diesem Browser gespeichert. Es gibt keine Übertragung an HR, Führungskräfte oder SALONFORMAT.</p>
-  </aside>
-  <div class="space-backdrop" hidden></div>
-
-  <footer>
-    <span>FIRST 100 DAYS</span>
-    <span>Eine Learning Experience von SALONFORMAT</span>
-    <span>Prototyp · Customer Success</span>
-  </footer>
-
-  <dialog id="time-dialog">
-    <button class="dialog-close" type="button" aria-label="Dialog schließen">×</button>
-    <p class="dialog-mark">100</p>
-    <h2>Wie viel Zeit brauchst du?</h2>
-    <p>In den ersten Wochen sind es etwa zwei bis drei Stunden pro Woche, später meist weniger als eine Stunde. Viele Missionen sind Teil deiner normalen Arbeit, zum Beispiel ein Kundengespräch beobachten oder einen Success Plan erstellen.</p>
-    <button class="primary-action" type="button" data-close-dialog>Verstanden</button>
+      <label>Dauer<select id="schedule-duration"><option value="20">20 Minuten</option><option value="30">30 Minuten</option><option value="45">45 Minuten</option><option value="60">60 Minuten</option></select></label>
+      <label>Notiz <small>optional</small><textarea id="schedule-note" rows="3" placeholder="Was möchtest du besprechen?"></textarea></label>
+      <p class="schedule-status" role="status"></p>
+      <button class="primary-action" type="submit">Termin speichern</button>
+    </form>
   </dialog>
 
-  <script src="app.js"></script>
+  <dialog id="scheduled-dialog" class="scheduled-dialog">
+    <button class="dialog-close" type="button" data-close-confirmation aria-label="Dialog schließen">×</button>
+    <p class="context-label">TERMIN GESPEICHERT</p>
+    <h2>Der Termin steht in deinem Dashboard.</h2>
+    <p>Du kannst zusätzlich eine Kalenderdatei herunterladen und sie in Apple Calendar, Outlook oder Google Calendar öffnen.</p>
+    <div><button type="button" class="primary-action" id="download-ics">Kalendereintrag herunterladen</button><button type="button" class="text-button" data-close-confirmation>Fertig</button></div>
+  </dialog>
+
+  <footer class="app-footer"><span>FIRST 100 DAYS</span><a href="https://salonformat.com/#projects" target="_blank" rel="noreferrer">Alle Experiences ↗</a><a href="https://salonformat.com" target="_blank" rel="noreferrer">Experience by SALONFORMAT</a><span>Alle Daten bleiben lokal</span></footer>
+  <script src="locales.js?v=4"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>

@@ -30,8 +30,12 @@ Nach 100 Tagen kann die Person ein kleines Kundenportfolio weitgehend selbststä
 
 ### Demo-Kontext
 
-Der Prototyp spielt beim fiktiven B2B-Softwareunternehmen Nexa. Die Nutzerin oder der Nutzer startet im Customer Success und soll nach 100 Tagen ein kleines Kundenportfolio selbst betreuen können.
+Der Prototyp spielt beim ausdrücklich fiktiven B2B-Softwareunternehmen DemoCo. Die Nutzerin oder der Nutzer startet im Customer Success und soll nach 100 Tagen ein kleines Kundenportfolio selbst betreuen können.
 
 ### Bedienung
 
-Die Experience beginnt mit dem Unternehmens- und Rollenkontext. Danach wird der Ablauf in vier Schritten erklärt: Mission öffnen, Aufgabe im Arbeitsalltag machen, Ergebnisse in den missionsbezogenen Feldern eintragen und Mission abschließen. Alle 15 Missionen sind über fünf Phasen erreichbar.
+Die Experience beginnt mit dem Unternehmens- und Rollenkontext. Danach wird der Ablauf in vier Schritten erklärt: Mission öffnen, Aufgabe im Arbeitsalltag machen, Ergebnisse in den missionsbezogenen Feldern eintragen und Mission abschließen. Alle 15 Missionen sind über fünf Phasen erreichbar. Eigene Bereiche bündeln die Journey, interne Kontakte und private Notizen. Termine lassen sich direkt innerhalb der Experience vorbereiten und als Kalenderdatei exportieren. Die Navigation unterstützt den normalen Browser-Verlauf.
+
+### Sprache
+
+Alle Interface-Texte und Missionsinhalte sind in natürlichem, formellem Alltagsdeutsch, Französisch und Englisch verfügbar.
