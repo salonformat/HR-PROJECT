@@ -97,6 +97,11 @@ h1 {
   letter-spacing: -.04em;
 }
 .hero-intro { max-width: 32rem; font-size: 1.15rem; line-height: 1.6; }
+.role-summary { display: grid; grid-template-columns: .8fr 1.35fr .9fr; max-width: 44rem; margin: 2.4rem 0 0; border-top: 1px solid rgba(255,255,255,.45); border-bottom: 1px solid rgba(255,255,255,.45); }
+.role-summary div { padding: 1rem 1.2rem 1rem 0; }
+.role-summary div + div { padding-left: 1.2rem; border-left: 1px solid rgba(255,255,255,.32); }
+.role-summary dt { margin-bottom: .35rem; font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; }
+.role-summary dd { margin: 0; font-family: var(--display); font-size: 1rem; line-height: 1.25; }
 .hero-actions { display: flex; align-items: center; gap: 1.7rem; margin-top: 2.6rem; }
 .primary-action {
   display: inline-flex;
@@ -131,6 +136,21 @@ h1 {
   font-weight: 600;
 }
 .promise p { margin: 0; }
+
+.start-guide { padding: 8rem 3.5vw; background: var(--paper); scroll-margin-top: 1rem; }
+.start-guide > header { display: grid; grid-template-columns: 1fr .55fr; gap: 8vw; align-items: end; margin-bottom: 5rem; }
+.start-guide > header h2 { max-width: 12ch; margin: 0; font-family: var(--display); font-size: clamp(3.2rem, 6vw, 6rem); font-weight: 400; line-height: 1; letter-spacing: -.035em; }
+.start-guide > header p { max-width: 30rem; margin: 0; font-size: 1.05rem; }
+.start-steps { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; border-top: 1px solid var(--ink); list-style: none; }
+.start-steps li { min-height: 17rem; display: flex; flex-direction: column; justify-content: space-between; padding: 1.2rem 1.4rem 1.5rem 0; border-right: 1px solid var(--line); }
+.start-steps li + li { padding-left: 1.4rem; }
+.start-steps li:last-child { border-right: 0; }
+.start-steps > li > span { font-size: .68rem; }
+.start-steps h3 { margin-bottom: .8rem; font-family: var(--display); font-size: 1.65rem; font-weight: 400; line-height: 1.1; }
+.start-steps p { margin: 0; font-size: .87rem; }
+.first-mission-callout { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-top: 2rem; padding: 2rem; background: var(--coral); }
+.first-mission-callout p { margin-bottom: .7rem; font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; }
+.first-mission-callout h3 { margin: 0; font-family: var(--display); font-size: clamp(1.8rem, 3vw, 3.2rem); font-weight: 400; }
 
 .journey { padding: 8rem 3.5vw; }
 .section-heading { display: grid; grid-template-columns: 1.25fr .75fr; gap: 8vw; align-items: end; margin-bottom: 6rem; }
@@ -239,6 +259,70 @@ h1 {
 
 footer { display: flex; justify-content: space-between; gap: 2rem; padding: 2rem 3.5vw; background: var(--blue); color: var(--white); text-transform: uppercase; font-size: .62rem; letter-spacing: .12em; }
 
+.journey-app { padding: 8rem 3.5vw; background: var(--paper); }
+.journey-app-head { display: grid; grid-template-columns: 1.2fr .6fr; gap: 8vw; align-items: end; margin-bottom: 5rem; }
+.journey-app-head h2 { max-width: 13ch; margin-bottom: 1.5rem; font-family: var(--display); font-size: clamp(3.4rem, 6vw, 6rem); font-weight: 400; line-height: 1; letter-spacing: -.035em; }
+.journey-app-head > div > p { max-width: 42rem; font-size: 1.05rem; }
+.overall-progress > div:first-child { display: flex; align-items: baseline; gap: .8rem; }
+.overall-progress strong { font-family: var(--display); font-size: 4.5rem; font-weight: 400; line-height: .8; }
+.overall-progress span { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; }
+.overall-progress p { margin: 1rem 0 0; font-size: .72rem; }
+.progress-track { width: 100%; height: .55rem; margin-top: 1.2rem; background: rgba(24,23,22,.14); }
+.progress-track span { display: block; width: 0; height: 100%; background: var(--coral); transition: width .4s ease-out; }
+
+.journey-shell { display: grid; grid-template-columns: minmax(20rem, .72fr) minmax(32rem, 1.28fr); align-items: start; border-top: 1px solid var(--ink); }
+.mission-navigation { position: sticky; top: 0; max-height: 100vh; overflow-y: auto; border-right: 1px solid var(--ink); }
+.phase-filter { border-bottom: 1px solid var(--ink); }
+.phase-filter button { width: 100%; display: grid; grid-template-columns: 5.5rem 1fr auto; gap: 1rem; align-items: center; border: 0; border-bottom: 1px solid var(--line); padding: 1rem 1.2rem 1rem 0; background: transparent; text-align: left; cursor: pointer; }
+.phase-filter button:last-child { border-bottom: 0; }
+.phase-filter button:hover { background: var(--white); padding-left: .8rem; }
+.phase-filter button[aria-selected="true"] { padding-left: .8rem; background: var(--blue); color: var(--white); }
+.phase-filter button span, .phase-filter button small { font-size: .65rem; text-transform: uppercase; letter-spacing: .08em; }
+.phase-filter button strong { font-family: var(--display); font-size: 1.15rem; font-weight: 400; }
+.phase-filter button small { justify-self: end; }
+
+.mission-list { background: var(--ink); color: var(--white); }
+.mission-list-head { padding: 2rem 1.5rem 1.5rem; }
+.mission-list-head span { color: var(--yellow); font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; }
+.mission-list-head h3 { margin: .45rem 0 0; font-family: var(--display); font-size: 2rem; font-weight: 400; }
+.mission-link { width: 100%; display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; border: 0; border-top: 1px solid rgba(255,255,255,.18); padding: 1.15rem 1.5rem; background: transparent; color: var(--white); text-align: left; cursor: pointer; }
+.mission-link:hover, .mission-link.active { background: var(--yellow); color: var(--ink); }
+.mission-status { display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid currentColor; border-radius: 50%; font-size: .65rem; }
+.mission-link strong, .mission-link small { display: block; }
+.mission-link strong { margin-bottom: .25rem; font-family: var(--display); font-size: 1rem; font-weight: 400; line-height: 1.25; }
+.mission-link small { font-size: .68rem; }
+
+.mission-workspace { min-height: 70rem; background: var(--white); scroll-margin-top: 1rem; }
+.mission-head { padding: 4.5rem clamp(2rem, 5vw, 5.5rem); background: var(--blue); color: var(--white); }
+.mission-position { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; margin-bottom: 3.5rem; }
+.mission-position span { font-size: .68rem; text-transform: uppercase; letter-spacing: .11em; }
+.mission-head h2 { max-width: 12ch; margin-bottom: 1.5rem; font-family: var(--display); font-size: clamp(3rem, 5vw, 5.2rem); font-weight: 400; line-height: 1; letter-spacing: -.03em; }
+.mission-head > p { max-width: 42rem; margin: 0; font-size: 1.08rem; }
+.mission-steps { display: grid; grid-template-columns: .5fr 1fr; gap: 3rem; padding: 3.5rem clamp(2rem, 5vw, 5.5rem); background: var(--yellow); }
+.mission-steps h3, .form-intro h3 { font-family: var(--display); font-size: 1.8rem; font-weight: 400; }
+.mission-steps ol { margin: 0; padding: 0; list-style: none; counter-reset: steps; }
+.mission-steps li { counter-increment: steps; display: grid; grid-template-columns: 2rem 1fr; gap: .8rem; padding: .8rem 0; border-top: 1px solid rgba(24,23,22,.3); }
+.mission-steps li::before { content: counter(steps); font-size: .68rem; }
+
+.mission-form { padding: 4.5rem clamp(2rem, 5vw, 5.5rem); }
+.form-intro { margin-bottom: 3rem; }
+.form-intro h3 { margin-bottom: .5rem; font-size: 2.4rem; }
+.form-intro p { font-size: .8rem; }
+.mission-field { display: block; margin-top: 2.2rem; }
+.mission-field > span { display: block; margin-bottom: .7rem; font-family: var(--display); font-size: 1.4rem; }
+.mission-field > span small { margin-left: .5rem; font-family: var(--sans); font-size: .6rem; text-transform: uppercase; letter-spacing: .08em; }
+.mission-field textarea { width: 100%; min-height: 8rem; resize: vertical; border: 1px solid var(--ink); border-radius: 0; padding: 1rem; background: var(--paper); color: var(--ink); line-height: 1.5; }
+.mission-field textarea:focus { outline: 2px solid var(--blue); outline-offset: 2px; background: var(--white); }
+.mission-field textarea::placeholder { color: #66625c; }
+.mission-form-status { min-height: 1.5rem; margin: 1rem 0 0; color: var(--blue); font-size: .78rem; }
+.mission-actions { display: flex; justify-content: flex-end; gap: .8rem; margin-top: 1.2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.mission-actions button { border: 1px solid var(--ink); padding: .9rem 1.1rem .78rem; background: transparent; cursor: pointer; text-transform: uppercase; letter-spacing: .07em; font-size: .7rem; }
+.mission-actions .complete-mission { border-color: var(--blue); background: var(--blue); color: var(--white); }
+.mission-actions .complete-mission.is-complete { border-color: var(--ink); background: var(--yellow); color: var(--ink); }
+.mission-next { display: flex; justify-content: space-between; padding: 1.5rem clamp(2rem, 5vw, 5.5rem) 4rem; }
+.mission-next button { border: 0; border-bottom: 1px solid currentColor; padding: .35rem 0; background: transparent; cursor: pointer; }
+.mission-loading { padding: 4rem; }
+
 .my-space-trigger {
   position: fixed;
   z-index: 30;
@@ -315,9 +399,34 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
   .hero-art { left: 2%; right: -22%; bottom: 6rem; opacity: .72; }
   .hero-art img { max-height: 27vh; }
   .hero-note { right: 1.2rem; bottom: 1.4rem; }
+  .role-summary { grid-template-columns: 1fr; max-width: 32rem; }
+  .role-summary div, .role-summary div + div { padding: .7rem 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.24); }
+  .role-summary div:first-child { border-top: 0; }
+  .start-guide { padding: 5rem 1.2rem; }
+  .start-guide > header { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
+  .start-steps { grid-template-columns: 1fr; }
+  .start-steps li, .start-steps li + li { min-height: auto; display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; padding: 1.2rem 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .first-mission-callout { grid-template-columns: 1fr; padding: 1.4rem; }
+  .first-mission-callout .primary-action { justify-self: start; }
   .section-heading, .phase-detail, .support-title-wrap, .fresh-eyes { grid-template-columns: 1fr; }
   .journey { padding: 5rem 1.2rem; }
   .section-heading { gap: 2rem; margin-bottom: 4rem; }
+  .journey-app { padding: 5rem 1.2rem; }
+  .journey-app-head { grid-template-columns: 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .journey-shell { grid-template-columns: 1fr; }
+  .mission-navigation { position: static; max-height: none; border-right: 0; }
+  .phase-filter { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .7rem; scroll-snap-type: x mandatory; }
+  .phase-filter button { min-width: 15rem; grid-template-columns: 1fr auto; padding: .9rem; border: 1px solid var(--line); scroll-snap-align: start; }
+  .phase-filter button span { grid-column: 1 / -1; }
+  .phase-filter button:hover, .phase-filter button[aria-selected="true"] { padding-left: .9rem; }
+  .mission-list { margin-bottom: 1rem; }
+  .mission-head { padding: 3rem 1.3rem; }
+  .mission-position { margin-bottom: 2.5rem; }
+  .mission-steps { grid-template-columns: 1fr; gap: 1rem; padding: 2.5rem 1.3rem; }
+  .mission-form { padding: 3rem 1.3rem; }
+  .mission-actions { flex-direction: column; }
+  .mission-actions button { width: 100%; }
+  .mission-next { padding: 1rem 1.3rem 3rem; }
   .timeline { grid-template-columns: 1fr; border-top: 0; }
   .phase { min-height: auto; flex-direction: row; align-items: center; gap: 1rem; padding: 1rem 0; border-right: 0; border-top: 1px solid var(--ink); }
   .phase strong { margin: 0 auto 0 0; font-size: 1.35rem; }

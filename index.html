@@ -18,9 +18,9 @@
       <span>first</span><span>100 days</span>
     </a>
     <nav aria-label="Hauptnavigation">
-      <a href="#journey">Journey</a>
-      <a href="#week">Diese Woche</a>
-      <a href="#fresh-eyes">Fresh Eyes</a>
+      <a href="#top">Start</a>
+      <a href="#journey">Missionen</a>
+      <a href="#how-it-works">So funktioniert es</a>
     </nav>
     <button class="sound-toggle" type="button" aria-pressed="false" aria-label="Ruhigen Fokusmodus aktivieren">
       <span aria-hidden="true"></span> Fokus
@@ -30,146 +30,67 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="day-label">TAG 01 · DEIN START</p>
-        <h1 id="hero-title">Du musst noch nicht alles wissen.</h1>
-        <p class="hero-intro">In den nächsten 100 Tagen lernst du Nexa nicht auswendig. Du findest heraus, wie du hier wirksam wirst – Schritt für Schritt, mitten in der echten Arbeit.</p>
+        <p class="day-label">DEMO-SZENARIO · DEIN ERSTER ARBEITSTAG</p>
+        <h1 id="hero-title">Willkommen bei Nexa.</h1>
+        <p class="hero-intro">Nexa entwickelt eine B2B-Plattform, mit der Unternehmen Kundenprojekte und interne Abläufe organisieren. Du startest als Customer Success Manager:in.</p>
+        <dl class="role-summary">
+          <div><dt>Deine Rolle</dt><dd>Customer Success</dd></div>
+          <div><dt>Dein Ziel nach 100 Tagen</dt><dd>Ein kleines Kundenportfolio selbst betreuen</dd></div>
+          <div><dt>Dein Programm</dt><dd>15 Missionen in fünf Phasen</dd></div>
+        </dl>
         <div class="hero-actions">
-          <a class="primary-action" href="#week">Erste Mission öffnen</a>
+          <a class="primary-action" href="#how-it-works">So startest du</a>
           <button class="text-action" type="button" data-open-dialog>Wie viel Zeit brauche ich?</button>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
         <img src="assets/journey-ink.png" alt="" />
       </div>
-      <p class="hero-note">Kein Zusatzprogramm.<br />Deine Arbeit wird zur Lernreise.</p>
+      <p class="hero-note">Fiktives Unternehmen.<br />Realistischer Onboarding-Prototyp.</p>
     </section>
 
-    <section class="promise" aria-label="Das Prinzip">
-      <p>Beobachten</p><span aria-hidden="true">→</span>
-      <p>Ausprobieren</p><span aria-hidden="true">→</span>
-      <p>Feedback</p><span aria-hidden="true">→</span>
-      <p>Verantwortung</p>
+    <section class="start-guide" id="how-it-works" aria-labelledby="guide-title">
+      <header>
+        <h2 id="guide-title">So benutzt du diese Experience.</h2>
+        <p>Du arbeitest die Missionen nicht an einem Stück durch. Sie begleiten dich über 100 Tage.</p>
+      </header>
+      <ol class="start-steps">
+        <li><span>1</span><div><h3>Mission öffnen</h3><p>Lies die Aufgabe und die drei konkreten Schritte.</p></div></li>
+        <li><span>2</span><div><h3>Aufgabe im Arbeitsalltag machen</h3><p>Zum Beispiel das Produkt testen oder ein Gespräch beobachten.</p></div></li>
+        <li><span>3</span><div><h3>Ergebnisse eintragen</h3><p>Jede Mission hat eigene Felder. Deine Einträge werden lokal gespeichert.</p></div></li>
+        <li><span>4</span><div><h3>Mission abschließen</h3><p>Danach siehst du deinen Fortschritt und kannst zur nächsten Mission gehen.</p></div></li>
+      </ol>
+      <div class="first-mission-callout">
+        <div><p>DEINE ERSTE AUFGABE · 40 MINUTEN</p><h3>Teste das Produkt wie ein neuer Kunde.</h3></div>
+        <a class="primary-action" href="#mission-workspace">Mission 1 starten</a>
+      </div>
     </section>
 
-    <section class="journey" id="journey" aria-labelledby="journey-title">
-      <div class="section-heading">
-        <h2 id="journey-title">Eine Reise, die mit deiner Arbeit mitwächst.</h2>
-        <p>Der Aufwand wird kleiner, deine Verantwortung größer. Jede Phase verbindet echte Aufgaben mit genau dem Wissen, das du dafür brauchst.</p>
-      </div>
-
-      <div class="timeline" role="list" aria-label="Fünf Phasen der Journey">
-        <button class="phase active" role="listitem" data-phase="0" aria-current="step">
-          <span class="phase-days">Tag 01–10</span>
-          <strong>Ankommen</strong>
-          <small>ca. 2–3 Std./Woche</small>
-        </button>
-        <button class="phase" role="listitem" data-phase="1">
-          <span class="phase-days">Tag 11–30</span>
-          <strong>Muster sehen</strong>
-          <small>ca. 2 Std./Woche</small>
-        </button>
-        <button class="phase" role="listitem" data-phase="2">
-          <span class="phase-days">Tag 31–60</span>
-          <strong>Wirksam werden</strong>
-          <small>ca. 1 Std./Woche</small>
-        </button>
-        <button class="phase" role="listitem" data-phase="3">
-          <span class="phase-days">Tag 61–90</span>
-          <strong>Verantworten</strong>
-          <small>ca. 45 Min./Woche</small>
-        </button>
-        <button class="phase" role="listitem" data-phase="4">
-          <span class="phase-days">Tag 91–100</span>
-          <strong>Weitergeben</strong>
-          <small>ein Abschluss</small>
-        </button>
-      </div>
-
-      <article class="phase-detail" aria-live="polite">
+    <section class="journey-app" id="journey" aria-labelledby="journey-title">
+      <header class="journey-app-head">
         <div>
-          <p class="phase-index">PHASE A</p>
-          <h3>Erst verstehen, dann funktionieren.</h3>
+          <h2 id="journey-title">Alle 15 Missionen auf einen Blick.</h2>
+          <p>Wähle eine Phase und dann eine Mission. Zu jeder Mission siehst du die Aufgabe, die einzelnen Schritte und passende Felder für deine Ergebnisse.</p>
         </div>
-        <div class="phase-body">
-          <p>Du lernst nicht zuerst alle Tools. Du lernst die Menschen, Fragen und Entscheidungen kennen, die deine Arbeit prägen.</p>
-          <ul>
-            <li>Produkt einmal aus Kund:innensicht erleben</li>
-            <li>Drei Perspektiven aus Sales, Support und Produkt hören</li>
-            <li>Eine ungeschriebene Regel entschlüsseln</li>
-          </ul>
+        <div class="overall-progress" aria-live="polite">
+          <div><strong id="completed-count">0</strong><span>von 15 erledigt</span></div>
+          <div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
+          <p>Deine Antworten und dein Fortschritt bleiben in diesem Browser gespeichert.</p>
         </div>
-      </article>
-    </section>
+      </header>
 
-    <section class="week" id="week" aria-labelledby="week-title">
-      <div class="week-number" aria-hidden="true">01</div>
-      <div class="week-content">
-        <p class="week-meta">DEINE ERSTE WOCHE · 40 MINUTEN + ECHTE ARBEIT</p>
-        <h2 id="week-title">Sieh das Produkt mit den Augen eines neuen Kunden.</h2>
-        <p>Richte einen Beispiel-Account ein. Notiere drei Stellen, an denen du neugierig wirst – und eine, an der du beinahe aussteigst.</p>
+      <div class="journey-shell">
+        <aside class="mission-navigation" aria-label="Alle Phasen und Missionen">
+          <div class="phase-filter" role="tablist" aria-label="Journey-Phasen"></div>
+          <div class="mission-list" aria-live="polite"></div>
+        </aside>
 
-        <div class="mission-grid">
-          <div class="mission-instruction">
-            <h3>Deine Mission</h3>
-            <ol>
-              <li><span>15 Min.</span> Ohne interne Anleitung starten</li>
-              <li><span>10 Min.</span> Irritationen und Aha-Momente sammeln</li>
-              <li><span>15 Min.</span> Beobachtung mit deinem Buddy teilen</li>
-            </ol>
-          </div>
-          <form class="field-note" id="field-note-form">
-            <label for="field-note">Deine Field Note</label>
-            <p>Was würdest du einem echten Kunden jetzt gerne fragen?</p>
-            <textarea id="field-note" rows="4" placeholder="Ein Gedanke reicht …"></textarea>
-            <button type="submit">Notiz für später sichern</button>
-            <p class="save-state" role="status"></p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="support" aria-labelledby="support-title">
-      <div class="support-title-wrap">
-        <h2 id="support-title">Du gehst nicht allein.</h2>
-        <p>Onboarding ist keine persönliche Bringschuld. Drei Menschen tragen die Journey mit dir.</p>
-      </div>
-      <div class="support-roles">
-        <article>
-          <span>01</span>
-          <h3>Dein Buddy</h3>
-          <p>für die Fragen, die in keinem Handbuch stehen</p>
-        </article>
-        <article>
-          <span>02</span>
-          <h3>Dein Lead</h3>
-          <p>für Klarheit, Feedback und wachsende Verantwortung</p>
-        </article>
-        <article>
-          <span>03</span>
-          <h3>Dein Netzwerk</h3>
-          <p>für Perspektiven jenseits des eigenen Teams</p>
+        <article class="mission-workspace" id="mission-workspace" aria-live="polite">
+          <div class="mission-loading">Mission wird geöffnet …</div>
         </article>
       </div>
     </section>
 
-    <section class="fresh-eyes" id="fresh-eyes" aria-labelledby="fresh-title">
-      <div class="fresh-art" aria-hidden="true">
-        <img src="assets/fresh-eyes-ink.png" alt="" />
-      </div>
-      <div class="fresh-copy">
-        <p class="day-label">TAG 100 · FRESH EYES</p>
-        <h2 id="fresh-title">Dein frischer Blick ist kein Zwischenzustand. Er ist wertvoll.</h2>
-        <p>Am Ende präsentierst du keine Prüfung. Du teilst, was dir geholfen hat, was lange unklar blieb und welche kleine Veränderung zukünftigen Kolleg:innen den Einstieg erleichtern könnte.</p>
-        <blockquote>Was sollten wir bewahren?<br />Was könnten wir gemeinsam besser machen?</blockquote>
-        <p class="privacy-note">Deine Beobachtungen werden als Muster weitergegeben, nicht als persönliche Bewertung. Sie fließen nicht in deine Leistungsbeurteilung ein.</p>
-      </div>
-    </section>
-
-    <section class="closing" aria-labelledby="closing-title">
-      <p>100 Tage später</p>
-      <h2 id="closing-title">Nicht fertig. Aber bereit, deinen eigenen Weg mitzugestalten.</h2>
-      <a href="#week">Zur ersten Mission zurück</a>
-    </section>
   </main>
 
   <button class="my-space-trigger" type="button" aria-expanded="false" aria-controls="my-space">
@@ -181,13 +102,13 @@
     <div class="space-head">
       <div>
         <p>DEIN PRIVATES NOTIZBUCH</p>
-        <h2>Gedanken, die bleiben dürfen.</h2>
+        <h2>Deine Notizen.</h2>
       </div>
       <button class="space-close" type="button" aria-label="Notizbuch schließen">×</button>
     </div>
 
     <section class="space-panel active">
-      <p class="space-prompt">Für Fragen, Beobachtungen und lose Gedanken während deiner 100 Tage. Niemand außer dir kann diese Einträge sehen.</p>
+      <p class="space-prompt">Hier kannst du zusätzliche Fragen und Beobachtungen festhalten. Niemand außer dir kann diese Einträge sehen.</p>
       <form id="journal-form" class="journal-form">
         <label for="journal-entry">Neue Notiz</label>
         <textarea id="journal-entry" rows="4" placeholder="Was will ich nicht vergessen?"></textarea>
@@ -216,8 +137,8 @@
   <dialog id="time-dialog">
     <button class="dialog-close" type="button" aria-label="Dialog schließen">×</button>
     <p class="dialog-mark">100</p>
-    <h2>100 Tage Begleitung.<br />Nicht 100 Tage Training.</h2>
-    <p>Die Journey liegt über deiner echten Arbeit. In den ersten Wochen reservierst du etwa 2–3 Stunden, später oft weniger als eine. Die meisten Missionen sind Aufgaben, die ohnehin anstehen – bewusster vorbereitet und besser reflektiert.</p>
+    <h2>Wie viel Zeit brauchst du?</h2>
+    <p>In den ersten Wochen sind es etwa zwei bis drei Stunden pro Woche, später meist weniger als eine Stunde. Viele Missionen sind Teil deiner normalen Arbeit, zum Beispiel ein Kundengespräch beobachten oder einen Success Plan erstellen.</p>
     <button class="primary-action" type="button" data-close-dialog>Verstanden</button>
   </dialog>
 

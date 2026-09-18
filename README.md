@@ -4,6 +4,8 @@ Ein interaktiver SALONFORMAT-Prototyp für eine rollenbasierte Onboarding Experi
 
 Die Experience enthält außerdem „Mein Notizbuch“: ein privates, ausschließlich lokal gespeichertes Begleitbuch für Fragen, Beobachtungen, Aha-Momente und lose Gedanken.
 
+Der Prototyp enthält 15 vollständig ausformulierte Missionen. Jede Mission hat konkrete Arbeitsschritte, eigene Eingabefelder, automatische lokale Speicherung und einen Abschlussstatus. Ein klarer Startscreen erklärt vorab das fiktive Unternehmen Nexa, die Rolle und die Bedienung.
+
 ## Idee
 
 Die Journey begleitet neue Mitarbeitende 100 Tage lang, beschäftigt sie aber nicht 100 Tage lang mit Training. Sie verbindet kurze Lernimpulse mit echter Arbeit:
