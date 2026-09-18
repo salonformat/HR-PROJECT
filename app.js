@@ -144,7 +144,7 @@ function nextMission() { return missions.find((mission) => !completed.includes(m
 
 function renderDashboard() {
   const next = nextMission();
-  $("#dashboard-next-mission").innerHTML = `<span>${phases.find((p) => p.id === next.phase).label} · ${durationLabel(next.duration)}</span><h2>${next.title}</h2><p>${next.intro}</p><button type="button" data-open-mission="${next.id}">${copy().dashboard.open}</button>`;
+  $("#dashboard-next-mission").innerHTML = `<strong class="dashboard-mission-number" aria-hidden="true">${Number(next.number)}</strong><span>${copy().mission.number} ${Number(next.number)} ${copy().mission.of} · ${phases.find((p) => p.id === next.phase).label} · ${durationLabel(next.duration)}</span><h2>${next.title}</h2><p>${next.intro}</p><button type="button" data-open-mission="${next.id}">${copy().dashboard.open}</button>`;
   $("#dashboard-phase-progress").innerHTML = phases.map((phase) => {
     const all = missions.filter((mission) => mission.phase === phase.id); const done = all.filter((mission) => completed.includes(mission.id)).length;
     return `<button type="button" data-open-phase="${phase.id}"><span><strong>${phase.name}</strong><small>${phase.label}</small></span><i><b style="width:${done / all.length * 100}%"></b></i><em>${done}/${all.length}</em></button>`;
@@ -161,7 +161,7 @@ function renderJourney() {
   }).join("");
   const phase = phases.find((x) => x.id === activePhase);
   $("#journey-phase-head").innerHTML = `<p>${phase.label}</p><h2>${phase.name}</h2>`;
-  $("#journey-mission-list").innerHTML = missions.filter((x) => x.phase === activePhase).map((mission) => `<button type="button" data-open-mission="${mission.id}" class="${completed.includes(mission.id) ? "done" : ""}"><span>${completed.includes(mission.id) ? "✓" : mission.number}</span><div><h3>${mission.title}</h3><p>${mission.intro}</p><small>${durationLabel(mission.duration)}</small></div><b>${copy().journey.open}</b></button>`).join("");
+  $("#journey-mission-list").innerHTML = missions.filter((x) => x.phase === activePhase).map((mission) => `<button type="button" data-open-mission="${mission.id}" class="${completed.includes(mission.id) ? "done" : ""}"><span class="mission-list-number">${completed.includes(mission.id) ? "✓" : Number(mission.number)}</span><div><h3>${mission.title}</h3><p>${mission.intro}</p><small>${copy().mission.number} ${Number(mission.number)} ${copy().mission.of} · ${durationLabel(mission.duration)}</small></div><b>${copy().journey.open}</b></button>`).join("");
   updateHeader();
 }
 

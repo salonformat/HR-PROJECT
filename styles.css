@@ -496,6 +496,7 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
 .next-mission-panel span { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; }
 .next-mission-panel h2 { max-width: 11ch; margin: 1.2rem 0; font-family: var(--display); font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 400; line-height: 1; }
 .next-mission-panel #dashboard-next-mission > p { max-width: 39rem; }
+.dashboard-mission-number { display: block; margin: -.4rem 0 1.2rem; color: var(--blue); font-family: var(--display); font-size: clamp(7rem, 12vw, 11rem); font-weight: 400; line-height: .72; letter-spacing: -.04em; }
 .next-mission-panel button, .panel-head button, .empty-state button { border: 0; border-bottom: 1px solid; padding: .4rem 0; background: none; cursor: pointer; }
 .next-mission-panel #dashboard-next-mission > button { margin-top: 2rem; padding: .9rem 1.2rem .78rem; border: 0; background: var(--blue); color: var(--white); text-transform: uppercase; letter-spacing: .08em; font-size: .7rem; }
 .panel-head { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; margin-bottom: 1.8rem; }
@@ -534,10 +535,11 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
 .journey-phase-content > header { padding: 2.5rem; }
 .journey-phase-content > header p { color: var(--yellow); font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; }
 .journey-phase-content > header h2 { font-family: var(--display); font-size: clamp(2.5rem, 4vw, 4.5rem); font-weight: 400; line-height: 1; }
-.journey-mission-list button { width: 100%; display: grid; grid-template-columns: 3rem 1fr auto; gap: 1.2rem; align-items: center; border: 0; border-bottom: 1px solid rgba(255,255,255,.25); padding: 1.7rem; background: transparent; color: var(--white); text-align: left; cursor: pointer; }
+.journey-mission-list button { width: 100%; display: grid; grid-template-columns: 6rem 1fr auto; gap: 1.4rem; align-items: center; border: 0; border-bottom: 1px solid rgba(255,255,255,.25); padding: 1.4rem 1.7rem; background: transparent; color: var(--white); text-align: left; cursor: pointer; }
 .journey-mission-list button:hover { background: var(--yellow); color: var(--ink); }
 .journey-mission-list button.done > span { background: var(--yellow); color: var(--ink); }
-.journey-mission-list button > span { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 1px solid; border-radius: 50%; font-size: .65rem; }
+.journey-mission-list .mission-list-number { display: block; color: var(--yellow); font-family: var(--display); font-size: 5.5rem; font-weight: 400; line-height: .8; letter-spacing: -.04em; text-align: center; }
+.journey-mission-list button.done .mission-list-number { font-family: var(--body); font-size: 2rem; }
 .journey-mission-list h3 { margin: 0 0 .5rem; font-family: var(--display); font-size: 1.6rem; font-weight: 400; }
 .journey-mission-list p { max-width: 45rem; margin: 0 0 .6rem; font-size: .8rem; }
 .journey-mission-list small { font-size: .65rem; }
@@ -649,7 +651,7 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
   .journey-progress { display: flex; overflow-x: auto; }
   .journey-progress button { min-width: 12rem; }
   .journey-phase-content { grid-template-columns: 1fr; }
-  .journey-mission-list button { grid-template-columns: 2.5rem 1fr; }
+  .journey-mission-list button { grid-template-columns: 4.5rem 1fr; }
   .journey-mission-list button > b { grid-column: 2; }
   .focused-steps { grid-template-columns: 1fr; }
   .mission-contextbar { top: 7.65rem; }
@@ -695,7 +697,8 @@ dialog .primary-action { margin-top: 1rem; background: var(--blue); color: var(-
   .journey-phase-content { margin-top: 1rem; }
   .journey-phase-content > header { padding: 1.4rem 1rem; }
   .journey-phase-content > header h2 { margin-bottom: .4rem; font-size: 2.4rem; }
-  .journey-mission-list button { grid-template-columns: 2.3rem 1fr; gap: .7rem; min-height: 5.5rem; padding: 1rem; }
+  .journey-mission-list button { grid-template-columns: 3.7rem 1fr; gap: .7rem; min-height: 6.5rem; padding: 1rem; }
+  .journey-mission-list .mission-list-number { font-size: 4rem; }
   .journey-mission-list h3 { font-size: 1.35rem; }
   .journey-mission-list p { display: none; }
   .mission-contextbar { position: sticky; top: 0; margin-bottom: .75rem; padding: .65rem 0; }
